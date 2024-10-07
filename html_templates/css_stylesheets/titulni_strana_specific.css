@@ -15,12 +15,15 @@ main{
     text-align: center;
 }
 
-#info-aplikace p{
+#info-aplikace article{
     padding: 5px;
     border-left: 10px solid #bababa;
 }
 
 
+#seznam_novacku{
+    padding-left: 15px;
+}
 
 #seznam_novacku ol {
     list-style-position: inside;
@@ -53,9 +56,6 @@ main{
     text-decoration: underline;
 }
 
-#seznam_novacku{
-    padding-left: 15px;
-}
 
 @media (min-width: 70rem){
     #seznam_novacku ol{
