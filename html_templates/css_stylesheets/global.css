@@ -2,13 +2,26 @@
 :root {
     font-size: 14pt;
     --spacing-default: 1rem;
+    font-family: Geneva, Tahoma, Verdana, sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+main{
+    background-color: #dedede;;
 }
 
 header {
+    text-align: center;
     background-color: #333;
     color: white;
-    padding: 20px;
-    text-align: center;
+    padding: 10px;
+}
+
+header h1{
+    text-transform: uppercase;
 }
 
 footer {
@@ -18,3 +31,22 @@ footer {
     text-align: center;
     font-size: 0.8rem;
 }
+
+a::after{
+    content:"\2197"
+}
+
+.back-link::after{
+    content: "\21A9";
+    color:black;
+}
+
+/*
+#seznam_novacku ol{
+    display: none;
+}
+
+#seznam_novacku:hover ol {
+    display: block;
+}
+*/
