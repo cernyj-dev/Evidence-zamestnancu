@@ -1,9 +1,59 @@
 /*Unifikovany vzhled pro vice podstranek titulni strany*/
+html{
+    scroll-behavior: smooth;
+}
+
 :root {
     font-size: 14pt;
     --spacing-default: 1rem;
     font-family: Geneva, Tahoma, Verdana, sans-serif;
 }
+
+header {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 0px 10px 0px;
+}
+nav{
+    border-top: 5px solid white;
+    padding: 10px 0px 10px 0px;
+    margin-right:0px;
+    margin-left:0px;
+}
+
+.nav-list{
+    display:flex;
+    justify-content: center;
+    justify-content: space-evenly;
+
+    gap: 0.1rem;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-list li{
+    /*background-color: #f9f9f9;*/
+
+    padding: 3px;
+}
+
+.nav-list li > *{
+    text-decoration: none;
+    /*color: #0073e6;*/
+    color: white;
+}
+
+.nav-list li > *:hover{
+    text-decoration: underline;
+}
+
+header h1{
+    text-transform: uppercase;
+}
+
 
 body{
     margin: 0;
@@ -18,27 +68,15 @@ main h1{
     padding-top:10px;
 }
 
-
-header {
-    text-align: center;
-    background-color: #333;
-    color: white;
-    padding: 10px;
-}
-
-header h1{
-    text-transform: uppercase;
-}
-
 footer {
     background-color: #333;
     color: white;
-    padding: 10px;
+    padding: 2rem;
     text-align: center;
     font-size: 0.8rem;
 }
 
-a::after{
+a::before{
     content:"\2197"
 }
 
@@ -46,6 +84,7 @@ a::after{
     content: "\21A9";
     color:black;
 }
+
 
 /*
 #seznam_novacku ol{
