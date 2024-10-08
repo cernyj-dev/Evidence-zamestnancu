@@ -18,10 +18,10 @@ header {
 }
 nav{
     border-top: 0.3125rem solid white;
-    padding: 0.625rem 0;
+    padding: 0.625rem 0 1rem 0;
     margin-right:0;
     margin-left:0;
-    padding-bottom:1rem;
+
 }
 
 .nav-list{
@@ -60,8 +60,8 @@ body{
     margin: 0;
     padding: 0;
 }
-main{
-    background-color: #dedede;;
+body{
+    background-color: #dedede;
 }
 
 main h1{
@@ -85,19 +85,49 @@ a:hover {
     text-decoration: underline;
 }
 
-a:not(.back-link)::before{
-    content:"\2197"
+
+/*
+.back-link {
+    display: inline-block;
+    margin: 1rem 0 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color:  #333;
+    color: white;
+    border-radius: 5px;
 }
 
-.back-link{
-    text-align: center;
-    display: block;
-
+.back-link:hover {
+    background-color: #005bb5;
 }
+
 
 .back-link::after{
     content: "\21A9";
-    color:black;
+    color:white;
+}*/
+:is(a:not([href="titulni_strana.html"]), .nav-list:first-child a)::before{
+    content:"\2197"
+}
+
+
+:not(.nav-list > li a)[href="titulni_strana.html"] {
+    display: inline-block;
+    margin: 1rem 0 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color:  #333;
+    color: white;
+    border-radius: 5px;
+}
+
+
+:not(.nav-list > li a) [href="titulni_strana.html"]:hover {
+    background-color: #005bb5;
+}
+
+
+:not(.nav-list > li a) [href="titulni_strana.html"]::after{
+    content: "\21A9";
+    color:white;
 }
 
 main h1:not(#info-aplikace > h1, #seznam_novacku > h1) {
@@ -108,7 +138,18 @@ main h1:not(#info-aplikace > h1, #seznam_novacku > h1) {
     border-top: 1rem solid #dedede;
     margin: 0 auto;
     padding: 0.5rem 1rem;
+
 }
+
+img{
+    max-width: 15rem;
+    margin: 1.5rem;
+    border: 0.1rem solid #333;
+    border-radius:0.5rem;
+    grid-area: img;
+}
+
+
 
 /*
 #seznam_novacku ol{
