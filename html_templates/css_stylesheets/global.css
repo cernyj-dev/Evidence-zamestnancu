@@ -105,12 +105,12 @@ a:hover {
     content: "\21A9";
     color:white;
 }*/
-:is(a:not([href="titulni_strana.html"]), .nav-list:first-child a)::before{
+:is(a:not([href="title_page.html"]), .nav-list:first-child a)::before{
     content:"\2197"
 }
 
 
-:not(.nav-list > li a)[href="titulni_strana.html"] {
+:not(.nav-list > li a)[href="title_page.html"] {
     display: inline-block;
     margin: 1rem 0 0.5rem;
     padding: 0.5rem 1rem;
@@ -120,17 +120,17 @@ a:hover {
 }
 
 
-:not(.nav-list > li a) [href="titulni_strana.html"]:hover {
+:not(.nav-list > li a) [href="title_page.html"]:hover {
     background-color: #005bb5;
 }
 
 
-:not(.nav-list > li a) [href="titulni_strana.html"]::after{
+:not(.nav-list > li a) [href="title_page.html"]::after{
     content: "\21A9";
     color:white;
 }
 
-main h1:not(#info-aplikace > h1, #seznam_novacku > h1) {
+.page-title {
     display: inline-block;
     text-align: center;
     background-color: #333;
