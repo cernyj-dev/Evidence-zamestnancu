@@ -1,0 +1,59 @@
+
+.content img{
+    max-width: 30rem;
+}
+
+.content article ul{
+    padding-bottom: 2rem;
+    list-style: none;
+    padding-left: 0;
+}
+
+.content article ul > li{
+    margin: 0 0 0.5rem 1rem;
+    padding-left: 1.5rem;
+    position: sticky;
+}
+
+.content article ul > li::before{
+    content: "➤";
+    position: absolute;
+    left: 0;
+    margin-right: 0.5rem;
+    color: black;
+}
+
+.content article h3{
+    font-size: 1.3rem;
+}
+
+.content article ol{
+    padding-bottom: 2rem;
+    list-style: upper-roman;
+    padding-left: 2.3rem;
+}
+
+.content article ol > li {
+    margin-bottom: 0.5rem;
+}
+
+#popis-zamestnance{
+    max-width: 60vw;
+    font-size: 1.1em;
+}
+
+@media (min-width: 50rem) {
+    .content {
+        gap: 3rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    img{
+        padding-bottom: 0;
+    }
+    article{
+        padding-left: 3rem;
+    }
+}
