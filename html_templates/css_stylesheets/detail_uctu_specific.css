@@ -1,0 +1,42 @@
+.ucty {
+    padding: 2rem;
+
+    margin: 1rem auto;
+    background-color: #dedede;
+}
+
+.ucty ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ucty ul li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.ucty h3 {
+    margin-top: 0;
+    color: #0073e6;
+}
+
+.ucty dt {
+    font-weight: bold;
+    color: #333;
+}
+
+.ucty dd {
+    margin-left: 1.5rem;
+    color: #666;
+    font-style: italic;
+}
+
+.ucty time {
+    font-weight: bold;
+    color: red;
+}
+
