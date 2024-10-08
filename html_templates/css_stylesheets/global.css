@@ -21,6 +21,7 @@ nav{
     padding: 0.625rem 0;
     margin-right:0;
     margin-left:0;
+    padding-bottom:1rem;
 }
 
 .nav-list{
@@ -76,8 +77,22 @@ footer {
     font-size: 0.8rem;
 }
 
-a::before{
+a {
+    text-decoration: none;
+    color: #0073e6;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+a:not(.back-link)::before{
     content:"\2197"
+}
+
+.back-link{
+    text-align: center;
+    display: block;
+
 }
 
 .back-link::after{
@@ -85,6 +100,15 @@ a::before{
     color:black;
 }
 
+main h1:not(#info-aplikace > h1, #seznam_novacku > h1) {
+    display: inline-block;
+    text-align: center;
+    background-color: #333;
+    color: white;
+    border-top: 1rem solid #dedede;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+}
 
 /*
 #seznam_novacku ol{
