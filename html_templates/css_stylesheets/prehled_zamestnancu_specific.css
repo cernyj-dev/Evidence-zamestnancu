@@ -10,6 +10,7 @@
 .seach-result-content{
     border: 5px solid black;
 
+
 }
 
 .search-result dl {
@@ -35,7 +36,7 @@
     margin-right: 0.5rem;
     color: black;
 }
-
+/*
 .search-result img{
     max-width: 15rem;
     margin: 1.5rem;
@@ -43,7 +44,7 @@
     border-radius:0.5rem;
     grid-area: img;
 }
-
+*/
 .search-result h2 {
     grid-area: h2;
     text-transform: uppercase;
