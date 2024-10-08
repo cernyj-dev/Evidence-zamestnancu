@@ -5,6 +5,7 @@
     <meta name="author" content="Jakub Černý">
     <title>Přehled zaměstnanců</title>
     <link rel="stylesheet" href="css_stylesheets/global.css">
+    <link rel="stylesheet" href="css_stylesheets/prehled_zamestnancu_specific.css">
 </head>
 <body>
 <header>
@@ -20,33 +21,41 @@
 </header>
     <main>
         <h1>Vyhledaní zaměstnanci</h1>
-        <ol>
+        <ol class="vyhledani-zamestnanci">
             <li>
-                <section>
+                <section class="search-result">
                     <h2>Petr Novák</h2>
-                    <img src="images/1.jpg" alt="Zaměstnanec" width="100" height="100">
+                    <img src="images/1.jpg" alt="Zaměstnanec">
                     <dl>
                         <dt>Funkce</dt>
                             <dd>Vývojář</dd>
                         <dt>Kontakt</dt>
                             <dd><a href="mailto:petr.novak@priklad.cz">petr.novak@priklad.cz</a></dd>
                     </dl>
-                    <a href="detail_zamestnance.html">Detail</a>
-                    <a href="chybova_stranka.html">Úprava</a>
+                    <div class="search-result-links">
+                        <a href="detail_zamestnance.html">Detail</a>
+                        <a href="chybova_stranka.html">Úprava</a>
+                        <a href="#">Účty</a>
+                    </div>
+
                 </section>
             </li>
             <li>
-                <section>
+                <section class="search-result">
                     <h2>Mikuláš Novotný</h2>
-                    <img src="images/2.jpg" alt="Zaměstnanec" width="100" height="100">
+                    <img src="images/2.jpg" alt="Zaměstnanec">
                     <dl>
                         <dt>Funkce</dt>
                             <dd>Manažer</dd>
                         <dt>Kontakt</dt>
                             <dd><a href="mailto:mikulas.novotny@priklad.cz">mikulas.novotny@priklad.cz</a></dd>
                     </dl>
-                    <a href="chybova_stranka.html">Detail</a>
-                    <a href="chybova_stranka.html">Úprava</a>
+                    <div class="search-result-links">
+                        <a href="chybova_stranka.html">Detail</a>
+                        <a href="chybova_stranka.html">Úprava</a>
+                        <a href="chybova_stranka.html">Účty</a>
+                    </div>
+
                 </section>
             </li>
         </ol>
