@@ -1,0 +1,15 @@
+{
+  "name": "evidence_zamestnancu/cernyj90",
+  "description": "Webova stranka - Evidence zamestnancu",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "cernyj90",
+      "email": "cernyj90@fit.cvut.cz"
+    }
+  ],
+  "require": {
+    "php": "^8.2"
+  }
+}
