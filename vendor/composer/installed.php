@@ -3,7 +3,7 @@
         'name' => 'cernyj90/evidence_zamestnancu',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '9d750192da80c401cca541636e6ede5a5882c7e7',
+        'reference' => '5ccf313cdf966711da4a52eea8780fb57da6608f',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'cernyj90/evidence_zamestnancu' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '9d750192da80c401cca541636e6ede5a5882c7e7',
+            'reference' => '5ccf313cdf966711da4a52eea8780fb57da6608f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
