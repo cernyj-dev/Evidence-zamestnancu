@@ -1,0 +1,162 @@
+/*Unifikovany vzhled pro vice podstranek titulni strany*/
+html{
+    scroll-behavior: smooth;
+}
+
+:root {
+    font-size: 14pt;
+    --spacing-default: 1rem;
+    font-family: Geneva, Tahoma, Verdana, sans-serif;
+}
+
+header {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 0.2rem 0;
+    margin:0;
+}
+nav{
+    border-top: 0.3125rem solid white;
+    padding: 0.625rem 0 1rem 0;
+    margin-right:0;
+    margin-left:0;
+
+}
+
+.nav-list{
+    display:flex;
+    justify-content: space-evenly;
+
+    gap: 0.1rem;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-list li{
+    /*background-color: #f9f9f9;*/
+
+    padding: 0.1875rem;
+}
+
+.nav-list li > *{
+    text-decoration: none;
+    /*color: #0073e6;*/
+    color: white;
+}
+
+.nav-list li > *:hover{
+    text-decoration: underline;
+}
+
+header h1{
+    text-transform: uppercase;
+}
+
+
+body{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #dedede;
+}
+
+main h1{
+    margin-top:0;
+    padding-top: 0.625rem;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+a {
+    text-decoration: none;
+    color: #0073e6;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+
+/*
+.back-link {
+    display: inline-block;
+    margin: 1rem 0 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color:  #333;
+    color: white;
+    border-radius: 5px;
+}
+
+.back-link:hover {
+    background-color: #005bb5;
+}
+
+
+.back-link::after{
+    content: "\21A9";
+    color:white;
+}*/
+:is(a:not([href="title_page.html"]), .nav-list:first-child a)::before{
+    content:"\2197"
+}
+
+
+:not(.nav-list > li a)[href="title_page.html"] {
+    display: inline-block;
+    margin: 1rem 0 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color:  #333;
+    color: white;
+    border-radius: 5px;
+}
+
+
+:not(.nav-list > li a) [href="title_page.html"]:hover {
+    background-color: #005bb5;
+}
+
+
+:not(.nav-list > li a) [href="title_page.html"]::after{
+    content: "\21A9";
+    color:white;
+}
+
+.page-title {
+    display: inline-block;
+    text-align: center;
+    background-color: #333;
+    color: white;
+    border-top: 1rem solid #dedede;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+
+}
+
+img{
+    max-width: 15rem;
+    margin: 1.5rem;
+    border: 0.1rem solid #333;
+    border-radius:0.5rem;
+    grid-area: img;
+}
+
+
+
+/*
+#seznam_novacku ol{
+    display: none;
+}
+
+#seznam_novacku:hover ol {
+    display: block;
+}
+*/
