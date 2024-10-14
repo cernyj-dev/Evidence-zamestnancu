@@ -19,6 +19,8 @@ class Router
         switch ($params['page'] ?? null) {
             case null:
                 return $this->renderIndex();
+            case 'title_page':
+                return $this->renderTitlePage();
             case 'employees':
                 return $this->renderEmployees();
             case 'employee_details':
@@ -32,17 +34,19 @@ class Router
         }
     }
 
-    /**
-     * @return string
-     */
-    public function renderIndex(): string
+    public function renderTitlePage(): string
     {
-        $template = $this->twig->load('title_page.html.twig');
+        $template = $this->twig->load('pages/title_page.html.twig');
 
         return $template->render([
             'title' => 'Titulní stránka',
             'employees' => $this->database->getEmployees(),
         ]);
+    }
+
+    public function renderIndex(): string
+    {
+        return $this->renderTitlePage();
     }
 
 
@@ -51,7 +55,7 @@ class Router
      */
     public function renderEmployees(): string
     {
-        $template = $this->twig->load('employees.html.twig');
+        $template = $this->twig->load('pages/employees.html.twig');
 
         return $template->render([
             'title' => 'Seznam zaměstnanců',
@@ -70,7 +74,7 @@ class Router
             return $this->renderError('NOT FOUND');
         }
 
-        $template = $this->twig->load('employee_details.html.twig');
+        $template = $this->twig->load('pages/employee_details.html.twig');
         $employee = $this->database->getEmployeeById((int)$params['id']);
 
         if ($employee === null) {
@@ -94,7 +98,7 @@ class Router
             return $this->renderError('NOT FOUND');
         }
 
-        $template = $this->twig->load('account_details.html.twig');
+        $template = $this->twig->load('pages/account_details.html.twig');
         $employee = $this->database->getEmployeeById((int)$params['id']);
 
         if ($employee === null) {
@@ -113,7 +117,7 @@ class Router
      */
     public function renderError(string $message): string
     {
-        $template = $this->twig->load('error.html.twig');
+        $template = $this->twig->load('pages/error.html.twig');
 
         return $template->render([
             'title' => $message,
