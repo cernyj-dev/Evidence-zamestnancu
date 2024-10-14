@@ -1,54 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Jakub Černý">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5">
-    <title>Detail zaměstnance</title>
-    <link rel="stylesheet" href="../stylesheets/global.css">
-    <link rel="stylesheet" href="../stylesheets/employee_details_specific.css">
-</head>
-<body>
-<header>
-    <h1>Evidence zaměstnanců</h1>
-    <nav>
-        <ul class="nav-list">
-            <li><a href="title_page.html.twig">Domovská stránka</a></li>
-            <li><a href="employees.html.twig">Přehled zaměstnanců</a></li>
-            <li><a href="error_page.html.twig">Kontakt</a></li>
-            <li><a href="title_page.html.twig#info-aplikace">Informace o aplikaci</a></li>
+{% extends '../layout.html.twig' %}
+
+{% stylesheets_specific %}
+    <link rel="stylesheet" href="../../stylesheets/employee_details_specific.css">
+{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Detail zaměstnance: {{ employee.name }}</h1>
+<section class="content">
+    <img src="{{ employee.image_url }}" alt="employee {{ employee.name }}">
+    <article>
+        <h3>Funkce</h3>
+        <ul>
+            {% for role in employee.roles %}
+                <li>{{ role }}</li>
+            {% endfor %}
         </ul>
-    </nav>
-</header>
-<main>
-    <h1 class="page-title">Detail zaměstnance: Petr Novák</h1>
-    <section class="content">
-        <img src="images/1.jpg" alt="zaměstnanec Petr Novák">
-        <article>
-            <h3>Funkce</h3>
-            <ul>
-                <li>Vývojář</li>
-                <li>Tester</li>
-                <li>Administrátor</li>
-            </ul>
-            <h3>Kontakt</h3>
-            <ol>
-                <li>Email: <a href="mailto: petr.novak@priklad.cz">petr.novak@priklad.cz</a></li>
-                <li>Telefon: <a href="tel:+420 123 456 789">+420 123 456 789</a></li>
-                <li>Kancelář: 3. patro, vpravo od výtahů</li>
-            </ol>
-            <p id="popis-zamestnance">Petr Novák je naším <strong>nejnovějším</strong> zaměstnancem. Stará se o vývoj a údržbu našich systémů a produktů.
-                Petr Novák je naším <strong>nejnovějším</strong> zaměstnancem. Stará se o vývoj a údržbu našich systémů a produktů.
-                Petr Novák je naším <strong>nejnovějším</strong> zaměstnancem. Stará se o vývoj a údržbu našich systémů a produktů.
-                Petr Novák je naším <strong>nejnovějším</strong> zaměstnancem. Stará se o vývoj a údržbu našich systémů a produktů.</p>
-        </article>
-    </section>
-
-</main>
-<a class="back-link" href="title_page.html.twig">Návrat na hlavní stránku</a>
-<footer>
-    <p>&copy; 2024 - Evidence zaměestnanců</p>
-</footer>
-
-</body>
-</html>
+        <h3>Kontakt</h3>
+        <ol>
+            <li>Email: <a href="mailto:{{ employee.email }}">{{ employee.email }}</a></li>
+            <li>Telefon: <a href="tel:{{ employee.phone }}">{{ employee.phone }}</a></li>
+            <li>Kancelář: {{ employee.office_location }}</li>
+        </ol>
+        <p id="employee_description">{{ employee.description }}</p>
+    </article>
+</section>
+{% endblock %}
