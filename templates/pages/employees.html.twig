@@ -1,11 +1,16 @@
+{% extends '../layout.html.twig' %}
+
+{% stylesheets_specific %}
+    <link rel="stylesheet" href="../../stylesheets/employees_specific.css">
+{% endblock %}
 
 <h1 class="page-title">Vyhledaní zaměstnanci</h1>
-<ol class="vyhledani-zamestnanci">
+<ol class="found-employees">
     {% for employee in employees %}
     <li>
         <section class="search-result">
             <h2>{{ employee.name }}</h2>
-            <img src="{{ employee.image_url }}" alt="Zaměstnanec">
+            <img src="{{ employee.image_url }}" alt="employee {{ employee.name }}">
             <dl>
                 <dt>Funkce</dt>
                     <dd>{{ employee.position }}</dd>
