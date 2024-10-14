@@ -4,11 +4,11 @@
     <link rel="stylesheet" href="../../stylesheets/error_page.css">
 {% endblock %}
 
-<h1 class="page-title">Chyba 404</h1>
+<h1 class="page-title"> {{ title }} </h1>
 <section>
 
-    <p>Omlouváme se, ale stránka, kterou hledáte, nebyla nalezena.</p>
-    <p>Možná byla odstraněna nebo neexistuje. Zkuste se vrátit na <a class="back-link" href="?page=title_page">hlavní stránku</a>.</p>
+    <p> {{ message }} </p>
+    <p>Zkuste se vrátit na <a class="back-link" href="?page=title_page">hlavní stránku</a>.</p>
 </section>
 
 {% block back_link %}
