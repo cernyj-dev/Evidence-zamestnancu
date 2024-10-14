@@ -7,18 +7,18 @@ main{
     /*padding: 20px;*/
 }
 
-#info-aplikace{
+#info-application{
     padding-right: 1.875rem;
     /*padding-right: 30px;*/
     /*border-right: 2px solid black;*/
     border-right: 0.125rem solid black;
 }
 
-#info-aplikace h1{
+#info-application h1{
     text-align: center;
 }
 
-#info-aplikace article{
+#info-application article{
     /*padding: 5px;*/
     padding: 0.3125rem;
     /*border-left: 10px solid #bababa;*/
@@ -26,19 +26,19 @@ main{
 }
 
 
-#seznam_novacku{
+#newbie-list{
     /*padding-left: 15px;*/
     padding-left: 0.9375rem;
 }
 
-#seznam_novacku ol {
+#newbie-list ol {
     list-style-position: inside;
     padding-left: 0;
     margin: 0;
     gap: 1.5rem;
 }
 
-#seznam_novacku ol > li{
+#newbie-list ol > li{
     /*padding: 10px;*/
     padding: 0.625rem;
     background-color: #f9f9f9;
@@ -49,23 +49,23 @@ main{
     box-sizing: border-box;
 }
 
-#seznam_novacku ol li:hover {
+#newbie-list ol li:hover {
     background-color: white;
     cursor: pointer;
 }
 
-#seznam_novacku ol li a {
+#newbie-list ol li a {
     text-decoration: none;
     color: #0073e6;
 }
 
-#seznam_novacku ol li a:hover {
+#newbie-list ol li a:hover {
     text-decoration: underline;
 }
 
 
 @media (min-width: 70rem){
-    #seznam_novacku ol{
+    #newbie-list ol{
         display: grid;
         grid-template-columns: 1fr 1fr;
 
