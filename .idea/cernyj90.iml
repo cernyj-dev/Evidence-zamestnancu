@@ -9,6 +9,11 @@
       <excludeFolder url="file://$MODULE_DIR$/.gitignore/vendor/symfony/polyfill-mbstring" />
       <excludeFolder url="file://$MODULE_DIR$/.gitignore/vendor/symfony/polyfill-php81" />
       <excludeFolder url="file://$MODULE_DIR$/.gitignore/vendor/twig/twig" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php81" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
