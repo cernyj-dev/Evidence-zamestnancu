@@ -28,7 +28,7 @@ class Router
             case 'employee_account_details':
                 return $this->handleEmployeeAccountDetails($params);
             case 'error_page':
-                return $this->renderError('Error Page');
+                return $this->renderError('Stránka doposud nevytvořena.');
             default:
                 return $this->renderError('ERROR');
         }
@@ -36,11 +36,11 @@ class Router
 
     public function renderTitlePage(): string
     {
-        $template = $this->twig->load('pages/title_page.html.twig');
+        $template = $this->twig->load('title_page.html.twig');
 
         return $template->render([
             'title' => 'Titulní stránka',
-            'employees' => $this->database->getEmployees(),
+            'newbies' => $this->database->getNewestEmployees(12),
         ]);
     }
 
@@ -55,7 +55,7 @@ class Router
      */
     public function renderEmployees(): string
     {
-        $template = $this->twig->load('pages/employees.html.twig');
+        $template = $this->twig->load('employees.html.twig');
 
         return $template->render([
             'title' => 'Seznam zaměstnanců',
@@ -74,7 +74,7 @@ class Router
             return $this->renderError('NOT FOUND');
         }
 
-        $template = $this->twig->load('pages/employee_details.html.twig');
+        $template = $this->twig->load('employee_details.html.twig');
         $employee = $this->database->getEmployeeById((int)$params['id']);
 
         if ($employee === null) {
@@ -98,7 +98,7 @@ class Router
             return $this->renderError('NOT FOUND');
         }
 
-        $template = $this->twig->load('pages/account_details.html.twig');
+        $template = $this->twig->load('employee_account_details.html.twig');
         $employee = $this->database->getEmployeeById((int)$params['id']);
 
         if ($employee === null) {
@@ -117,10 +117,10 @@ class Router
      */
     public function renderError(string $message): string
     {
-        $template = $this->twig->load('pages/error.html.twig');
+        $template = $this->twig->load('error_page.html.twig');
 
         return $template->render([
-            'title' => $message,
+            'title' => "Chyba 404",
             'message' => $message,
         ]);
     }

@@ -1,15 +1,18 @@
-{% extends '../layout.html.twig' %}
+{% extends 'layout.html.twig' %}
 
-{% stylesheets_specific %}
-    <link rel="stylesheet" href="../../stylesheets/error_page.css">
+{% block stylesheets_specific %}
+    <link rel="stylesheet" href="../stylesheets/error_page.css">
 {% endblock %}
 
+{% block content %}
 <h1 class="page-title"> {{ title }} </h1>
 <section>
 
     <p> {{ message }} </p>
     <p>Zkuste se vrátit na <a class="back-link" href="?page=title_page">hlavní stránku</a>.</p>
 </section>
+{% endblock %}
+
 
 {% block back_link %}
 {% endblock %}

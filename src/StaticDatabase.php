@@ -186,6 +186,14 @@ class StaticDatabase
             [new Account("TechWriter", "username/password", new \DateTimeImmutable("2026-05-01"))]
         );
     }
+    public function getNewestEmployees(int $limit = 12): array {
+        usort($this->employees, function($a, $b) {
+            return $b->getID <=> $a->getID;
+        });
+
+        return array_slice($this->employees, 0, $limit);
+    }
+
     public function addEmployee(Employee $employee): void
     {
         $this->employees[] = $employee;

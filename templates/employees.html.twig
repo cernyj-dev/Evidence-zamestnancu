@@ -1,9 +1,10 @@
-{% extends '../layout.html.twig' %}
+{% extends 'layout.html.twig' %}
 
-{% stylesheets_specific %}
-    <link rel="stylesheet" href="../../stylesheets/employees_specific.css">
+{% block stylesheets_specific %}
+    <link rel="stylesheet" href="../stylesheets/employees_specific.css">
 {% endblock %}
 
+{% block content %}
 <h1 class="page-title">Vyhledaní zaměstnanci</h1>
 <ol class="found-employees">
     {% for employee in employees %}
@@ -13,7 +14,11 @@
             <img src="{{ employee.image_url }}" alt="employee {{ employee.name }}">
             <dl>
                 <dt>Funkce</dt>
-                    <dd>{{ employee.position }}</dd>
+                    {% for role in employee.roles %}
+                        <dd>{{ role }}</dd>
+                    {% else %}
+                        <dd>Nemá žádnou roli.</dd>
+                    {% endfor %}
                 <dt>Kontakt</dt>
                     <dd><a href="mailto:{{ employee.email }}">{{ employee.email }}</a></dd>
             </dl>
@@ -30,3 +35,5 @@
     {% endfor %}
 
 </ol>
+
+{% endblock %}

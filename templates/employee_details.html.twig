@@ -1,7 +1,7 @@
-{% extends '../layout.html.twig' %}
+{% extends 'layout.html.twig' %}
 
-{% stylesheets_specific %}
-    <link rel="stylesheet" href="../../stylesheets/employee_details_specific.css">
+{% block stylesheets_specific %}
+    <link rel="stylesheet" href="../stylesheets/employee_details_specific.css">
 {% endblock %}
 
 {% block content %}
@@ -22,6 +22,8 @@
             <li>Kancelář: {{ employee.office_location }}</li>
         </ol>
         <p id="employee_description">{{ employee.description }}</p>
+
+        <a href="?page=employee_account_details&id={{ employee.id }}">Účty</a>
     </article>
 </section>
 {% endblock %}

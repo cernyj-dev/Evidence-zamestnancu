@@ -1,7 +1,7 @@
-{% extends '../layout.html.twig' %}
+{% extends 'layout.html.twig' %}
 
-{% stylesheets_specific %}
-    <link rel="stylesheet" href="../../stylesheets/employee_account_details_specific.css">
+{% block stylesheets_specific %}
+    <link rel="stylesheet" href="../stylesheets/employee_account_details_specific.css">
 {% endblock %}
 
 {% block content %}
@@ -21,7 +21,11 @@
                     <dd>{{ account.type }}</dd>
 
                     <dt>Expirace</dt>
-                    <dd>{{ account.expiration }}</dd>
+                    <dd>
+                        <time datetime="{{ account.expiration|date('Y-m-d') }}">
+                            {{ account.expiration|date('d.m.Y') }}
+                        </time>
+                    </dd>
                 </dl>
             </li>
         {% endfor %}
