@@ -42,7 +42,28 @@
     font-size: 1.1em;
 }
 
-@media (min-width: 50rem) {
+#employee_description{
+    padding:0 0 1rem 0;
+    max-width: 60rem;
+}
+
+#accounts-link{
+    margin:1rem 0 1rem 0;
+    padding: 0.625rem;
+    background-color: #f9f9f9;
+    border: 0.0625rem solid #ddd;
+    border-radius: 0.3125rem;
+    width:100%;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+article{
+    padding: 0 3rem 0 3rem;
+}
+
+
+@media (min-width: 600px) {
     .content {
         gap: 3rem;
         display: flex;
@@ -53,7 +74,7 @@
     img{
         padding-bottom: 0;
     }
-    article{
-        padding-left: 3rem;
-    }
+
 }
+
+
