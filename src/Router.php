@@ -120,7 +120,7 @@ class Router
         $template = $this->twig->load('error_page.html.twig');
 
         return $template->render([
-            'title' => "Chyba 404",
+            'title' => "501 Not Implemented",
             'message' => $message,
         ]);
     }
