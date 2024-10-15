@@ -9,16 +9,16 @@ class StaticDatabase
     public function __construct()
     {
         $this->employees[] = new Employee(
-            "Petr Novák",
-            "petr.novak@priklad.cz",
+            "Daniel Zbyněk",
+            "daniel.zbynek@example.com",
             "/images/1.jpg",
-            "k320",
-            "Velmi dobrý pracovník. Chodí na ryby, stará se o systémy, je to šikulka.",
-            "123 456 789",
-            ["IT specialista", "Projektový manažer"],
-            [new Account("Admin", "karta", new \DateTimeImmutable("2028-01-01")),
-                new Account("IT Podpora", "username/password", new \DateTimeImmutable("2025-01-01"))]
+            "k335",
+            "Technický autor zjednodušující složité myšlenky.",
+            "159 753 486",
+            ["Technical Writer"],
+            [new Account("TechWriter", "username/password", new \DateTimeImmutable("2026-05-01"))]
         );
+
 
         $this->employees[] = new Employee(
             "Jane Smith",
@@ -176,19 +176,21 @@ class StaticDatabase
         );
 
         $this->employees[] = new Employee(
-            "Daniel Zbyněk",
-            "daniel.zbynek@example.com",
+            "Petr Novák",
+            "petr.novak@priklad.cz",
             "/images/1.jpg",
-            "k335",
-            "Technický autor zjednodušující složité myšlenky.",
-            "159 753 486",
-            ["Technical Writer"],
-            [new Account("TechWriter", "username/password", new \DateTimeImmutable("2026-05-01"))]
+            "k320",
+            "Petr je spolehlivý IT pracovník, který se vždy snaží najít efektivní řešení problémů. Kromě své odbornosti v oblasti správy systémů je také vášnivým rybářem, což mu pomáhá udržovat rovnováhu mezi prací a volným časem. Kolegové na něj mohou vždy spoléhat, protože je precizní a rychle reaguje na jakýkoli technický problém. Jeho schopnost přemýšlet mimo rámec běžných postupů z něj dělá nepostradatelného člena týmu. Ať už se jedná o správu serverů nebo o pomoc s uživatelskými dotazy, vždy přistupuje ke své práci s maximální péčí a profesionalitou.",
+            "123 456 789",
+            ["IT specialista", "Projektový manažer"],
+            [new Account("Admin", "karta", new \DateTimeImmutable("2028-01-01")),
+                new Account("IT Podpora", "username/password", new \DateTimeImmutable("2025-01-01"))]
         );
+
     }
     public function getNewestEmployees(int $limit = 12): array {
         usort($this->employees, function($a, $b) {
-            return $b->getID <=> $a->getID;
+            return $b->getID() <=> $a->getID();
         });
 
         return array_slice($this->employees, 0, $limit);
