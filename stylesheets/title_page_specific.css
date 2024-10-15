@@ -4,13 +4,12 @@ main{
     gap: 1.5rem;
     grid-template-columns: 4fr 2fr;
     padding: 1.25rem;
-    /*padding: 20px;*/
+
 }
 
 #info-application{
     padding-right: 1.875rem;
-    /*padding-right: 30px;*/
-    /*border-right: 2px solid black;*/
+
     border-right: 0.125rem solid black;
 }
 
@@ -19,15 +18,15 @@ main{
 }
 
 #info-application article{
-    /*padding: 5px;*/
+
     padding: 0.3125rem;
-    /*border-left: 10px solid #bababa;*/
+
     border-left: 0.625rem solid #bababa;
 }
 
 
 #newbie-list{
-    /*padding-left: 15px;*/
+
     padding-left: 0.9375rem;
 }
 
@@ -39,11 +38,11 @@ main{
 }
 
 #newbie-list ol > li{
-    /*padding: 10px;*/
+
     padding: 0.625rem;
     background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 0.0625rem solid #ddd;
+    border-radius: 0.3125rem;
     width:100%;
     text-align: left;
     box-sizing: border-box;
