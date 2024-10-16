@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets_specific %}
+    <link rel="stylesheet" href="../stylesheets/employees_specific.css">
+{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Vyhledaní zaměstnanci</h1>
+<ol class="found-employees">
+    {% for employee in employees %}
+    <li>
+        <section class="search-result">
+            <h2>{{ employee.name }}</h2>
+            <img src="{{ employee.image_url }}" alt="employee {{ employee.name }}">
+            <dl>
+                <dt>Funkce</dt>
+                    {% for role in employee.roles %}
+                        <dd>{{ role }}</dd>
+                    {% else %}
+                        <dd>Nemá žádnou roli.</dd>
+                    {% endfor %}
+                <dt>Kontakt</dt>
+                    <dd><a href="mailto:{{ employee.email }}">{{ employee.email }}</a></dd>
+            </dl>
+            <div class="search-result-links">
+                <a href="?page=employee_details&id={{ employee.id }}">Detail</a>
+                <a href="?page=error_page">Úprava</a>
+                <a href="?page=employee_account_details&id={{ employee.id }}">Účty</a>
+            </div>
+
+        </section>
+    </li>
+    {% else %}
+        <li>Žádní zaměstnanci nenalezeni.</li>
+    {% endfor %}
+
+</ol>
+
+{% endblock %}

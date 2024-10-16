@@ -1,0 +1,38 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets_specific %}
+    <link rel="stylesheet" href="../stylesheets/employee_account_details_specific.css">
+{% endblock %}
+
+{% block content %}
+
+<h1 class="page-title">Detail účtu zaměstnance: {{ employee.name }}</h1>
+<section class="accounts">
+    {% if employee.accounts is not empty %}
+    <ul>
+        {% for account in employee.accounts %}
+            <li>
+                <h3>{{ loop.index }}</h3>
+                <dl>
+                    <dt>Název účtu</dt>
+                    <dd>{{ account.name }}</dd>
+
+                    <dt>Typ</dt>
+                    <dd>{{ account.type }}</dd>
+
+                    <dt>Expirace</dt>
+                    <dd>
+                        <time datetime="{{ account.expiration|date('Y-m-d') }}">
+                            {{ account.expiration|date('d.m.Y') }}
+                        </time>
+                    </dd>
+                </dl>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>Tento zaměstnanec nemá žádné účty.</p>
+    {% endif %}
+</section>
+
+{% endblock %}

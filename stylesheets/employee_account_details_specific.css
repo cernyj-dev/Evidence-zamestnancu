@@ -1,41 +1,41 @@
-.ucty {
+.accounts {
     padding: 2rem;
 
     margin: 1rem auto;
     background-color: #dedede;
 }
 
-.ucty ul {
+.accounts ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.ucty ul li {
+.accounts ul li {
     background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    border: 0.0625rem solid #ddd;
     padding: 1.5rem;
     margin-bottom: 1rem;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
 }
 
-.ucty h3 {
+.accounts h3 {
     margin-top: 0;
     color: #0073e6;
 }
 
-.ucty dt {
+.accounts dt {
     font-weight: bold;
     color: #333;
 }
 
-.ucty dd {
+.accounts dd {
     margin-left: 1.5rem;
     color: #666;
     font-style: italic;
 }
 
-.ucty time {
+.accounts time {
     font-weight: bold;
     color: red;
 }

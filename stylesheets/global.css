@@ -4,9 +4,10 @@ html{
 }
 
 :root {
-    font-size: 14pt;
+    font-size: 12pt;
     --spacing-default: 1rem;
     font-family: Geneva, Tahoma, Verdana, sans-serif;
+
 }
 
 header {
@@ -36,14 +37,11 @@ nav{
 }
 
 .nav-list li{
-    /*background-color: #f9f9f9;*/
-
     padding: 0.1875rem;
 }
 
 .nav-list li > *{
     text-decoration: none;
-    /*color: #0073e6;*/
     color: white;
 }
 
@@ -86,25 +84,16 @@ a:hover {
 }
 
 
-/*
+
 .back-link {
     display: inline-block;
-    margin: 1rem 0 0.5rem;
+    margin: 2rem 0 0.5rem;
     padding: 0.5rem 1rem;
     background-color:  #333;
     color: white;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
 }
 
-.back-link:hover {
-    background-color: #005bb5;
-}
-
-
-.back-link::after{
-    content: "\21A9";
-    color:white;
-}*/
 :is(a:not([href="title_page.html"]), .nav-list:first-child a)::before{
     content:"\2197"
 }
@@ -116,7 +105,7 @@ a:hover {
     padding: 0.5rem 1rem;
     background-color:  #333;
     color: white;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
 }
 
 
@@ -142,21 +131,36 @@ a:hover {
 }
 
 img{
-    max-width: 15rem;
+    max-width: 12rem;
     margin: 1.5rem;
     border: 0.1rem solid #333;
     border-radius:0.5rem;
     grid-area: img;
+    object-fit: cover;
 }
 
 
 
-/*
-#seznam_novacku ol{
-    display: none;
+/* For larger screens */
+@media (min-width: 1024px) {
+    img {
+        width: 16rem;
+        height: 16rem;
+    }
 }
 
-#seznam_novacku:hover ol {
-    display: block;
+/* For tablets */
+@media (max-width: 1024px) {
+    img {
+        width: 14rem;
+        height: 14rem;
+    }
 }
-*/
+
+/* For mobile devices */
+@media (max-width: 600px) {
+    img {
+        width: 10rem;
+        height: 10rem;
+    }
+}

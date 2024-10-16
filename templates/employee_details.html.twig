@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets_specific %}
+    <link rel="stylesheet" href="../stylesheets/employee_details_specific.css">
+{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Detail zaměstnance: {{ employee.name }}</h1>
+<section class="content">
+    <img src="{{ employee.image_url }}" alt="employee {{ employee.name }}">
+    <article>
+        <h3>Funkce</h3>
+        <ul>
+            {% for role in employee.roles %}
+                <li>{{ role }}</li>
+            {% endfor %}
+        </ul>
+        <h3>Kontakt</h3>
+        <ol>
+            <li>Email: <a href="mailto:{{ employee.email }}">{{ employee.email }}</a></li>
+            <li>Telefon: <a href="tel:{{ employee.phone }}">{{ employee.phone }}</a></li>
+            <li>Kancelář: {{ employee.office_location }}</li>
+        </ol>
+        <p id="employee_description">{{ employee.description }}</p>
+
+        <a id="accounts-link" href="?page=employee_account_details&id={{ employee.id }}">Účty</a>
+    </article>
+</section>
+{% endblock %}
