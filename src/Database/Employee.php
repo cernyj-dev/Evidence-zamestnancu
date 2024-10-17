@@ -1,8 +1,6 @@
 <?php
 
-namespace App;
-
-use App\Account;
+namespace App\Database;
 
 class Employee
 {
