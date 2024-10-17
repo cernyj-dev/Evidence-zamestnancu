@@ -12,12 +12,39 @@
   </component>
   <component name="PhpIncludePathManager">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/twig/twig" />
-      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php81" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/composer" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/tmp_new/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/tmp_old/vendor/composer" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.3" />
