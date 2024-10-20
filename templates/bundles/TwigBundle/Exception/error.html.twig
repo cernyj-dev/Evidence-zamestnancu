@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+
+{% block title_name %}
+    <title> Chyba {{ code }}</title>
+{% endblock %}
+
+{% block stylesheets_specific %}
+    <link rel="stylesheet" href="{{ asset('styles/error_page.css') }}">
+{% endblock %}
+
+{% block content %}
+<h1 class="page-title"> Chyba {{ code }}</h1>
+<section>
+
+    <p>{{ message }}</p>
+    <p>Zkuste se vrátit na <a class="back-link" href="{{ path('app_homepage') }}">hlavní stránku</a>.</p>
+</section>
+{% endblock %}
+
+
+{% block back_link %}
+{% endblock %}
