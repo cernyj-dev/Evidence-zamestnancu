@@ -1,8 +1,7 @@
-{% extends 'layout.html.twig' %}
+{% extends '/layout.html.twig' %}
 
 {% block stylesheets_specific %}
-    <!--<link rel="stylesheet" href="../stylesheets/title_page_specific.css">-->
-    <link rel="stylesheet" href="/stylesheets/title_page_specific.css">
+    <link rel="stylesheet" href="{{ asset('/styles/title_page_specific.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -27,7 +26,7 @@
         <ol>
             {% for newbie in newbies %}
                 <li>
-                    <a href="?page=employee_details&id={{ newbie.id }}">{{ newbie.name }}</a>
+                    <a href="{{ path('app_employee_details', {id: newbie.id}) }}">{{ newbie.name }}</a>
                 </li>
             {% endfor %}
         </ol>
