@@ -10,13 +10,13 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class MyCustomProblemNormalizer implements NormalizerInterface
 {
-    public function normalize($exception, ?string $format = null, array $context = []): array
+    public function normalize($object, ?string $format = null, array $context = []): array
     {
         return [
             'content' => 'This is my custom problem normalizer.',
             'exception'=> [
-                'message' => $exception->getMessage(),
-                'code' => $exception->getStatusCode(),
+                'message' => $object->getMessage(),
+                'code' => $object->getStatusCode(),
             ],
         ];
     }
