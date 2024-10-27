@@ -1,7 +1,7 @@
-{% extends 'layout.html.twig' %}
+{% extends '/layout.html.twig' %}
 
 {% block stylesheets_specific %}
-    <link rel="stylesheet" href="../stylesheets/employees_specific.css">
+    <link rel="stylesheet" href="{{ asset('/styles/employees_specific.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -23,9 +23,9 @@
                     <dd><a href="mailto:{{ employee.email }}">{{ employee.email }}</a></dd>
             </dl>
             <div class="search-result-links">
-                <a href="?page=employee_details&id={{ employee.id }}">Detail</a>
-                <a href="?page=error_page">Úprava</a>
-                <a href="?page=employee_account_details&id={{ employee.id }}">Účty</a>
+                <a href="{{ path('app_employee_details', {id: employee.id}) }}">Detail</a>
+                <a href="{{ path('app_error') }}">Úprava</a>
+                <a href="{{ path('app_employee_account_details', {id: employee.id}) }}">Účty</a>
             </div>
 
         </section>

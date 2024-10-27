@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="author" content="Jakub Černý">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> {{ title }} </title>
-    <link rel="stylesheet" href="../stylesheets/global.css">
+    {% block title_name %}
+        <title> {{ title }} </title>
+    {% endblock %}
+    <link rel="stylesheet" href="{{ asset('styles/global.css') }}">
     {% block stylesheets_specific %}
 
     {% endblock %}
@@ -15,10 +17,10 @@
   <h1>Evidence zaměstnanců</h1>
   <nav>
     <ul class="nav-list">
-      <li><a href="?page=title_page">Domovská stránka</a></li>
-      <li><a href="?page=employees">Přehled zaměstnanců</a></li>
-      <li><a href="?page=error_page">Kontakt</a></li>
-      <li><a href="?page=error_page">FAQ</a></li>
+      <li><a href="{{ path('app_homepage') }}">Domovská stránka</a></li>
+      <li><a href="{{ path('app_employees') }}">Přehled zaměstnanců</a></li>
+      <li><a href="{{ path('app_error') }}">Kontakt</a></li>
+      <li><a href="{{ path('app_error') }}">FAQ</a></li>
     </ul>
   </nav>
 </header>
@@ -29,7 +31,7 @@
 </main>
 
 {% block back_link %}
-  <a class="back-link" href="?page=title_page">Návrat na hlavní stránku</a>
+  <a class="back-link" href="{{ path('app_homepage') }}">Návrat na hlavní stránku</a>
 {% endblock %}
 
   <footer>
