@@ -60,6 +60,10 @@
 
 }
 
+.search-result img{
+    grid-area: img;
+}
+
 .search-result-links {
     grid-area: detail;
     display:flex;
