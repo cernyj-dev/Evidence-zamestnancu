@@ -2,13 +2,22 @@
 
 namespace App\Database;
 
+use App\Entity\Employee;
+use App\Entity\Account;
+use App\Entity\Role;
+use Doctrine\ORM\EntityManagerInterface;
+
 class Database
 {
     private array $employees = [];
+    private array $accounts = [];
 
-    public function __construct()
+    private array $roles = [];
+    private EntityManagerInterface $manager;
+    public function __construct(EntityManagerInterface $manager)
     {
-        $id_counter = 0;
+        $this->roles[1] =
+
         $this->employees[] = new Employee(
             "Daniel Zbyněk",
             "daniel.zbynek@example.com",
