@@ -23,7 +23,14 @@ class Database
         (new Role())->setName("Finanční expert"),
         (new Role())->setName("Tester")];
 
-        $this->
+        $this->employees = [(new Employee())
+            ->setName("Daniel Zbyněk")
+            ->setEmail("daniel.zbynek@example.com")
+            ->setImageUrl("/images/1.jpg")
+            ->setOfficeLocation("k335")
+            ->setDescription("Technický autor zjednodušující složité myšlenky.")
+            ->setPhone("159 753 486")
+            ->setRoles([3])];
 
 
         $this->employees[] = new Employee(
