@@ -66,12 +66,12 @@ class Account
         return $this;
     }
 
-    public function getExpiration(): ?string
+    public function getExpiration(): ?\DateTimeImmutable
     {
         return $this->expiration;
     }
 
-    public function setExpiration(string $expiration): static
+    public function setExpiration(?\DateTimeImmutable $expiration): static
     {
         $this->expiration = $expiration;
 
