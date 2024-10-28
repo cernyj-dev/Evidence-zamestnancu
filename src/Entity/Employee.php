@@ -34,9 +34,6 @@ class Employee
     #[ORM\Column(type: 'array', nullable: true)]
     private ?array $role_ids = null;
 
-    #[ORM\Column(type: 'array', nullable: true)]
-    private ?array $account_ids = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -126,15 +123,4 @@ class Employee
         return $this;
     }
 
-    public function getAccounts(): ?array
-    {
-        return $this->account_ids;
-    }
-
-    public function setAccounts(?array $account_ids): static
-    {
-        $this->account_ids = $account_ids;
-
-        return $this;
-    }
 }
