@@ -44,14 +44,5 @@ class EmployeeController extends AbstractController
         ]);
     }
 
-    #[Route('/error', name: 'app_error')]
-    public function errorPage(): Response
-    {
-        return $this->render('error_page.html.twig', [
-                'title' => 'Chyba',
-                'code' => '501',
-                'message' => 'Stránka doposud nebyla implementována.',
-            ]
-        );
-    }
+
 }
