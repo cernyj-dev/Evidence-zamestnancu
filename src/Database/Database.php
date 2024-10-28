@@ -171,7 +171,97 @@ class Database
                 ->setPhone("123 456 789")
                 ->setRoles([1,2,6])
             ];
+        $this->accounts = [
+            (new Account())->setName("Marketing")
+                ->setType("username/password")
+                ->setExpiration(new \DateTimeImmutable("2026-05-01"))
+                ->setEmployeeId(1),
 
+            (new Account())->setName("Marketing")
+                ->setType("username/password")
+                ->setExpiration(new \DateTimeImmutable("2026-05-01"))
+                ->setEmployeeId(2),
+
+            (new Account())->setName("Marketing")
+                ->setType("username/password")
+                ->setExpiration(new \DateTimeImmutable("2026-05-01"))
+                ->setEmployeeId(3),
+
+            (new Account())->setName("Marketing")
+                ->setType("username/password")
+                ->setExpiration(new \DateTimeImmutable("2026-05-01"))
+                ->setEmployeeId(4),
+
+            (new Account())->setName("Marketing")
+                ->setType("username/password")
+                ->setExpiration(new \DateTimeImmutable("2026-05-01"))
+                ->setEmployeeId(5),
+
+            (new Account())->setName("Marketing")
+                ->setType("username/password")
+                ->setExpiration(new \DateTimeImmutable("2026-05-01"))
+                ->setEmployeeId(6),
+
+            (new Account())->setName("Marketing")
+                ->setType("username/password")
+                ->setExpiration(new \DateTimeImmutable("2026-05-01"))
+                ->setEmployeeId(7),
+
+            (new Account())->setName("Marketing")
+                ->setType("username/password")
+                ->setExpiration(new \DateTimeImmutable("2026-05-01"))
+                ->setEmployeeId(8),
+
+            (new Account())->setName("Marketing")
+                ->setType("username/password")
+                ->setExpiration(new \DateTimeImmutable("2026-05-01"))
+                ->setEmployeeId(9),
+
+            (new Account())->setName("Marketing")
+                ->setType("username/password")
+                ->setExpiration(new \DateTimeImmutable("2026-05-01"))
+                ->setEmployeeId(10),
+
+            (new Account())->setName("Marketing")
+                ->setType("username/password")
+                ->setExpiration(new \DateTimeImmutable("2026-05-01"))
+                ->setEmployeeId(11),
+
+            (new Account())->setName("Marketing")
+                ->setType("username/password")
+                ->setExpiration(new \DateTimeImmutable("2026-05-01"))
+                ->setEmployeeId(12),
+
+            (new Account())->setName("Marketing")
+                ->setType("username/password")
+                ->setExpiration(new \DateTimeImmutable("2026-05-01"))
+                ->setEmployeeId(13),
+
+            (new Account())->setName("Marketing")
+                ->setType("username/password")
+                ->setExpiration(new \DateTimeImmutable("2026-05-01"))
+                ->setEmployeeId(14),
+
+            (new Account())->setName("Marketing")
+                ->setType("username/password")
+                ->setExpiration(new \DateTimeImmutable("2026-05-01"))
+                ->setEmployeeId(15),
+
+            (new Account())->setName("Admin")
+                ->setType("karta")
+                ->setExpiration(new \DateTimeImmutable("2028-05-01"))
+                ->setEmployeeId(16),
+
+            (new Account())->setName("Projektak")
+                ->setType("username/password")
+                ->setExpiration(new \DateTimeImmutable("2026-05-01"))
+                ->setEmployeeId(16),
+
+            (new Account())->setName("Tester")
+                ->setType("username/password")
+                ->setExpiration(new \DateTimeImmutable("2026-05-01"))
+                ->setEmployeeId(16)
+        ];
 
     }
     public function getNewestEmployees(int $limit = 12): array {
