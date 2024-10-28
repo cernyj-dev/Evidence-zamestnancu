@@ -16,7 +16,15 @@ class Database
     private EntityManagerInterface $manager;
     public function __construct(EntityManagerInterface $manager)
     {
-        $this->roles[1] =
+        $this->roles = [(new Role())->setName("IT specialista"),
+        (new Role())->setName("Projektový manažer"),
+        (new Role())->setName("Marketingový specialista"),
+        (new Role())->setName("HR"),
+        (new Role())->setName("Finanční expert"),
+        (new Role())->setName("Tester")];
+
+        $this->
+
 
         $this->employees[] = new Employee(
             "Daniel Zbyněk",
