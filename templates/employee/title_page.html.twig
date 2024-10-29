@@ -26,11 +26,9 @@
             <ol>
                 {% for employee in employees %}
                     <li>
-                        {% if employee.id is defined and employee.id %}
-                            <a href="{{ path('app_employee_details', {id: employee.id}) }}">{{ employee.name }}</a>
-                        {% else %}
-                            <p>Employee ID is missing for {{ employee.name }}</p>
-                        {% endif %}
+
+                        <a href="{{ path('app_employee_details', {id: employee.id}) }}">{{ employee.name }}</a>
+
                     </li>
                 {% endfor %}
             </ol>
