@@ -40,3 +40,14 @@
     color: red;
 }
 
+.account-edit-link {
+    padding: 0.625rem;
+    max-width:8rem;
+    min-width:5rem;
+    background-color: #333;
+    border: 0.0625rem solid #ddd;
+    color: white;
+    border-radius: 0.3125rem;
+    text-align: left;
+    box-sizing: border-box;
+}
