@@ -13,8 +13,9 @@ class Database
     private array $accounts = [];
 
     private array $roles = [];
-    private EntityManagerInterface $manager;
-    public function __construct(EntityManagerInterface $manager)
+    #private EntityManagerInterface $manager;
+    public function __construct(
+        private EntityManagerInterface $manager)
     {
         $this->roles = [(new Role())->setName("IT specialista"),
         (new Role())->setName("Projektový manažer"),
@@ -262,6 +263,19 @@ class Database
                 ->setExpiration(new \DateTimeImmutable("2026-05-01"))
                 ->setEmployeeId(16)
         ];
+        foreach($this->roles as $role){
+            $this->manager->persist($role);
+        }
+
+        foreach($this->employees as $employee){
+            $this->manager->persist($employee);
+        }
+
+        foreach($this->accounts as $account){
+            $this->manager->persist($account);
+        }
+
+        $this->manager->flush();
 
     }
     public function getNewestEmployees(int $limit = 12): array {
