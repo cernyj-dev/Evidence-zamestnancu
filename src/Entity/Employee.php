@@ -75,12 +75,12 @@ class Employee
         return $this;
     }
 
-    public function getOfficeLocation(): ?string
+    public function getoffice_location(): ?string
     {
         return $this->office_location;
     }
 
-    public function setOfficeLocation(?string $office_location): static
+    public function setoffice_location(?string $office_location): static
     {
         $this->office_location = $office_location;
 
