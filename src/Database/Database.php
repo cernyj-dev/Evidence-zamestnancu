@@ -23,10 +23,11 @@ class Database
         (new Role())->setName("HR"),
         (new Role())->setName("Finanční expert"),
         (new Role())->setName("Tester"),
-            (new Role())->setName("Obchodní zástupnce"),
+            (new Role())->setName("Obchodní zástupce"),
             (new Role())->setName("Zákaznický servis"),
             (new Role())->setName("Logistický koordinátor"),
             (new Role())->setName("Grafický designer"),
+            (new Role())->setName("Poradce"),
         ];
 
         $this->employees = [(new Employee())
@@ -281,7 +282,7 @@ class Database
     }
     public function getNewestEmployees(int $limit = 12): array {
         usort($this->employees, function($a, $b) {
-            return $b->getID() <=> $a->getID();
+            return $b->getId() <=> $a->getId();
         });
 
         return array_slice($this->employees, 0, $limit);
@@ -298,7 +299,7 @@ class Database
     public function getEmployeeById(int $id): ?Employee
     {
         foreach ($this->employees as $employee) {
-            if ($employee->getID() === $id) {
+            if ($employee->getId() === $id) {
                 return $employee;
             }
         }
@@ -307,7 +308,7 @@ class Database
     public function removeEmployeeById(int $id): bool
     {
         foreach ($this->employees as $index => $employee) {
-            if ($employee->getID() === $id) {
+            if ($employee->getId() === $id) {
                 unset($this->employees[$index]);
                 $this->employees = array_values($this->employees);
                 return true;

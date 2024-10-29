@@ -16,7 +16,7 @@ class EmployeeController extends AbstractController
     {
         return $this->render('employee/title_page.html.twig', [
             'title' => 'Titulní stránka',
-            'newbies' => $this->database->getNewestEmployees(12),
+            'employees' => $this->database->getEmployees()
         ]);
     }
 

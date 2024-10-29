@@ -22,17 +22,23 @@
 
     <section id="newbie-list">
         <h1>Seznam nejnovějších uživatelů</h1>
-        {% if newbies is not empty %}
-        <ol>
-            {% for newbie in newbies %}
-                <li>
-                    <a href="{{ path('app_employee_details', {id: newbie.id}) }}">{{ newbie.name }}</a>
-                </li>
-            {% endfor %}
-        </ol>
+        {% if employees is not empty %}
+            <ol>
+                {% for employee in employees %}
+                    <li>
+                        {% if employee.id is defined and employee.id %}
+                            <a href="{{ path('app_employee_details', {id: employee.id}) }}">{{ employee.name }}</a>
+                        {% else %}
+                            <p>Employee ID is missing for {{ employee.name }}</p>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ol>
         {% else %}
             <p>Seznam nováčků je prázdný.</p>
         {% endif %}
+
+
     </section>
 {% endblock %}
 
