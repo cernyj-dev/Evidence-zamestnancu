@@ -8,7 +8,8 @@
 <h1 class="page-title">Detail zaměstnance: {{ employee.name }}</h1>
 <section class="content">
     <img src="{{ employee.image_url }}" alt="employee {{ employee.name }}">
-    <article>
+
+    <article id="roles-contacts">
         <h3>Funkce</h3>
         <ul>
             {% for role in employee.roles %}
@@ -21,9 +22,11 @@
             <li>Telefon: <a href="tel:{{ employee.phone }}">{{ employee.phone }}</a></li>
             <li>Kancelář: {{ employee.office_location }}</li>
         </ol>
+    </article>
+    <div id="description-link">
         <p id="employee_description">{{ employee.description }}</p>
 
         <a id="accounts-link" href="{{ path('app_employee_account_details', {id: employee.id}) }}">Účty</a>
-    </article>
+    </div>
 </section>
 {% endblock %}
