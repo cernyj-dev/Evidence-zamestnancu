@@ -263,6 +263,7 @@ class Database
                 ->setExpiration(new \DateTimeImmutable("2026-05-01"))
                 ->setEmployeeId(16)
         ];
+        /*
         foreach($this->roles as $role){
             $this->manager->persist($role);
         }
@@ -275,7 +276,7 @@ class Database
             $this->manager->persist($account);
         }
 
-        $this->manager->flush();
+        $this->manager->flush(); */
 
     }
     public function getNewestEmployees(int $limit = 12): array {
@@ -313,5 +314,39 @@ class Database
             }
         }
         return false;
+    }
+
+    public function getAccounts(): array{
+        return $this->accounts;
+    }
+
+    public function getAccountsByEmployeeId(int $employeeId): array
+    {
+        return array_filter($this->accounts, function($account) use ($employeeId) {
+            return $account->getEmployeeId() === $employeeId;
+        });
+    }
+
+    public function getRoles():array{
+        return $this->roles;
+    }
+
+    /**
+     * Get an array of role names based on an array of role IDs.
+     *
+     * @param int[] $roleIds Array of role IDs.
+     * @return string[] Array of role names.
+     */
+    public function getRolesFromIds(array $roleIds): array
+    {
+        $roleNames = [];
+
+        foreach ($roleIds as $roleId) {
+            if (isset($this->roles[$roleId])) {
+                $roleNames[] = $this->roles[$roleId]->getName();
+            }
+        }
+
+        return $roleNames;
     }
 }

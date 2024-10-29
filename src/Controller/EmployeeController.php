@@ -26,6 +26,7 @@ class EmployeeController extends AbstractController
         return $this->render('employee/employees.html.twig', [
             'title' => 'Seznam zaměstnanců',
             'employees' => $this->database->getEmployees(),
+            'all_roles' => $this->database->getRoles(),
         ]);
     }
 
@@ -39,8 +40,10 @@ class EmployeeController extends AbstractController
         }
 
         return $this->render('employee/employee_details.html.twig', [
-            'title' => "Detail: {$employee->name}",
+            'title' => "Detail: {$employee->getName()}",
             'employee' => $employee,
+            'all_roles' => $this->database->getRoles(),
+
         ]);
     }
 

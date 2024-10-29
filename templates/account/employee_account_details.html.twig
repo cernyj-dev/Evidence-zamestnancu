@@ -8,9 +8,9 @@
 
 <h1 class="page-title">Detail účtu zaměstnance: {{ employee.name }}</h1>
 <section class="accounts">
-    {% if employee.accounts is not empty %}
+    {% if accounts is not empty %}
     <ul>
-        {% for account in employee.accounts %}
+        {% for account in accounts %}
             <li>
                 <h3>{{ loop.index }}</h3>
                 <dl>

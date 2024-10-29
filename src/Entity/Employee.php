@@ -63,7 +63,7 @@ class Employee
         return $this;
     }
 
-    public function getImageUrl(): ?string
+    public function getimage_url(): ?string
     {
         return $this->image_url;
     }

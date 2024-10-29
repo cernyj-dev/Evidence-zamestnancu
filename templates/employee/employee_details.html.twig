@@ -12,7 +12,7 @@
         <h3>Funkce</h3>
         <ul>
             {% for role in employee.roles %}
-                <li>{{ role }}</li>
+                <li>{{ all_roles[role] }}</li>
             {% endfor %}
         </ul>
         <h3>Kontakt</h3>

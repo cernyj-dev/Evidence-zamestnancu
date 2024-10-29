@@ -20,10 +20,11 @@ class AccountController extends AbstractController
         if ($employee === null) {
             throw $this->createNotFoundException();
         }
-
+        $employee_accounts = $this->database->getAccountsByEmployeeId($id);
         return $this->render('account/employee_account_details.html.twig', [
-            'title' => "{$employee->name}'s detaily ůčtů",
+            'title' => "{$employee->getName()}'s detaily ůčtů",
             'employee' => $employee,
+            'accounts' => $employee_accounts,
         ]);
     }
 }
