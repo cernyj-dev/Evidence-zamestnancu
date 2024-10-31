@@ -8,9 +8,9 @@
 
 <h1 class="page-title">Detail účtu zaměstnance: {{ employee.name }}</h1>
 <section class="accounts">
-    {% if employee.accounts is not empty %}
+    {% if accounts is not empty %}
     <ul>
-        {% for account in employee.accounts %}
+        {% for account in accounts %}
             <li>
                 <h3>{{ loop.index }}</h3>
                 <dl>
@@ -27,11 +27,14 @@
                         </time>
                     </dd>
                 </dl>
+                <a href="/edit" class="account-edit-link">
+                    Upravit účet
+                </a>
             </li>
         {% endfor %}
     </ul>
     {% else %}
-        <p>Tento zaměstnanec nemá žádné účty.</p>
+        <h2>Tento zaměstnanec nemá žádné účty.</h2>
     {% endif %}
 </section>
 
