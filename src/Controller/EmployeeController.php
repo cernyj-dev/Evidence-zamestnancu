@@ -28,14 +28,7 @@ class EmployeeController extends AbstractController
     #[Route('/employees', name: 'app_employees')]
     public function index(): Response
     {
-        $allRoles = $this->roleRepository->findAll();
-        $rolesById = [];
-
-        // reindexing the roles, because from findAll, there were returned as an array index from 0
-        // but Employee has them listed starting from 1
-        foreach ($allRoles as $role) {
-            $rolesById[$role->getId()] = $role;
-        }
+        $rolesById = $this->roleRepository->findAllReindexedById();
 
         return $this->render('employee/employees.html.twig', [
             'title' => 'Seznam zaměstnanců',
@@ -47,12 +40,7 @@ class EmployeeController extends AbstractController
     #[Route('/employee/{id}', name: 'app_employee_details', requirements: ['id' => '\d+'])]
     public function show(Employee $employee): Response
     {
-        $allRoles = $this->roleRepository->findAll();
-        $rolesById = [];
-
-        foreach ($allRoles as $role) {
-            $rolesById[$role->getId()] = $role;
-        }
+        $rolesById = $this->roleRepository->findAllReindexedById();
 
         return $this->render('employee/employee_details.html.twig', [
             'title' => "Detail: {$employee->getName()}",

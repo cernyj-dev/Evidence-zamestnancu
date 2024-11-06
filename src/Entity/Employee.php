@@ -16,7 +16,7 @@ class Employee
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique: true)]
     private ?string $email = null;
 
     #[ORM\Column(length: 255)]
@@ -25,7 +25,7 @@ class Employee
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $office_location = null;
 
-    #[ORM\Column(length: 1500, nullable: true)]
+    #[ORM\Column(type: "text", nullable: true)]
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]
