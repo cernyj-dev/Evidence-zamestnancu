@@ -8,7 +8,7 @@
 <div id="add-role-container">
     <h1 class="page-title">{{ title }}</h1>
 
-    <a id="add-role-link" href="#">Přidat roli</a>
+    <a id="add-role-link" href="{{ path('app_role_create') }}">Přidat roli</a>
 </div>
     <section class="roles">
         {% if all_roles is not empty %}
@@ -16,7 +16,7 @@
                 {% for role in all_roles %}
                     <li>
                         <p>{{ role.name }}</p>
-                        <a href="#">Upravit roli</a>
+                        <a href="{{ path('app_role_edit', {id: role.id}) }}">Upravit roli</a>
                     </li>
                 {% endfor %}
             </ul>
