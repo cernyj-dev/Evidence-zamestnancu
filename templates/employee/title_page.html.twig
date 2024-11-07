@@ -4,40 +4,48 @@
     <link rel="stylesheet" href="{{ asset('/styles/title_page_specific.css') }}">
 {% endblock %}
 
+
+
 {% block content %}
-    <section id="info-application">
-        <h1>Informace o aplikaci</h1>
-        <article>
-            <p>
-                Tato aplikace slouží k evidenci zaměstnanců firmy XYZ. Lze zde najít seznam všech zaměstnanců společně s jejich fotkou, jmény, funkcí a emailem. U každého zaměstnance si pak můžete rozkliknout "detail" a zjistit k němu bližší informace, nebo lze informace o daném zaměstnanci měnit přes "úprava."
-            </p>
-            <p>
-                Aplikace umožňuje také filtrování a vyhledávání zaměstnanců podle různých kritérií, jako jsou pracovní pozice, oddělení, nebo datum nástupu. Každý zaměstnanec má svůj vlastní profil, který obsahuje kromě základních údajů také historii pracovních změn, kontaktní informace, a poznámky nadřízených.
-            </p>
-            <p>
-                Administrátoři mohou snadno přidávat nové zaměstnance, aktualizovat jejich informace, nebo dokonce generovat reporty o celkovém počtu zaměstnanců v jednotlivých odděleních. Systém rovněž zajišťuje bezpečnost dat a nabízí různá úroveň přístupových práv podle uživatelských rolí.
-            </p>
-        </article>
+    <section id="create-employee-link">
+        <a href="#">Přidat zaměstnance</a>
     </section>
+    <div id="title-page-info">
+        <section id="info-application">
+            <h1>Informace o aplikaci</h1>
+            <article>
+                <p>
+                    Tato aplikace slouží k evidenci zaměstnanců firmy XYZ. Lze zde najít seznam všech zaměstnanců společně s jejich fotkou, jmény, funkcí a emailem. U každého zaměstnance si pak můžete rozkliknout "detail" a zjistit k němu bližší informace, nebo lze informace o daném zaměstnanci měnit přes "úprava."
+                </p>
+                <p>
+                    Aplikace umožňuje také filtrování a vyhledávání zaměstnanců podle různých kritérií, jako jsou pracovní pozice, oddělení, nebo datum nástupu. Každý zaměstnanec má svůj vlastní profil, který obsahuje kromě základních údajů také historii pracovních změn, kontaktní informace, a poznámky nadřízených.
+                </p>
+                <p>
+                    Administrátoři mohou snadno přidávat nové zaměstnance, aktualizovat jejich informace, nebo dokonce generovat reporty o celkovém počtu zaměstnanců v jednotlivých odděleních. Systém rovněž zajišťuje bezpečnost dat a nabízí různá úroveň přístupových práv podle uživatelských rolí.
+                </p>
+            </article>
+        </section>
 
-    <section id="newbie-list">
-        <h1>Seznam nejnovějších uživatelů</h1>
-        {% if employees is not empty %}
-            <ol>
-                {% for employee in employees %}
-                    <li>
+        <section id="newbie-list">
+            <h1>Seznam nejnovějších uživatelů</h1>
+            {% if employees is not empty %}
+                <ol>
+                    {% for employee in employees %}
+                        <li>
 
-                        <a href="{{ path('app_employee_details', {id: employee.id}) }}">{{ employee.name }}</a>
+                            <a href="{{ path('app_employee_details', {id: employee.id}) }}">{{ employee.name }}</a>
 
-                    </li>
-                {% endfor %}
-            </ol>
-        {% else %}
-            <p>Seznam nováčků je prázdný.</p>
-        {% endif %}
+                        </li>
+                    {% endfor %}
+                </ol>
+            {% else %}
+                <p>Seznam nováčků je prázdný.</p>
+            {% endif %}
 
 
-    </section>
+        </section>
+    </div>
+
 {% endblock %}
 
 {% block back_link %}

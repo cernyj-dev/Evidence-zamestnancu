@@ -7,6 +7,9 @@
 {% block content %}
 
 <h1 class="page-title">Detail účtu zaměstnance: {{ employee.name }}</h1>
+<div id="add-account-container">
+    <a id="add-account-link" href="#">Přidat účet</a>
+</div>
 <section class="accounts">
     {% if accounts is not empty %}
     <ul>
@@ -27,8 +30,11 @@
                         </time>
                     </dd>
                 </dl>
-                <a href="/edit" class="account-edit-link">
+                <a href="/edit" class="account-link">
                     Upravit účet
+                </a>
+                <a href="#" class="account-link">
+                    Smazat účet
                 </a>
             </li>
         {% endfor %}

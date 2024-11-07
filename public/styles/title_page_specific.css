@@ -1,5 +1,22 @@
 
-main{
+#create-employee-link{
+
+    padding: 0.625rem;
+    background-color: #333;
+    border: 0.0625rem solid #ddd;
+    border-radius: 0.3125rem;
+    width: fit-content;
+    text-align: right;
+    box-sizing: border-box;
+    margin-left: auto;
+    color: white;
+}
+
+#create-employee-link a {
+    color: white;
+}
+
+#title-page-info{
     display:grid;
     gap: 1.5rem;
     grid-template-columns: 4fr 2fr;
