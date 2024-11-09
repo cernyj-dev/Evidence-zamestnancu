@@ -7,7 +7,7 @@
 {% block content %}
 <h1 class="page-title">Detail zaměstnance: {{ employee.name }}</h1>
 <section class="content">
-    <img src="{{ employee.image_url }}" alt="employee {{ employee.name }}">
+    <img src="{{ employee.image_url ?: '/images/3.jpg' }}" alt="employee {{ employee.name }}">
 
     <article id="roles-contacts">
         <h3>Funkce</h3>
@@ -22,14 +22,17 @@
         <ol>
             <li>Email: <a href="mailto:{{ employee.email }}">{{ employee.email }}</a></li>
             <li>Telefon: <a href="tel:{{ employee.phone }}">{{ employee.phone }}</a></li>
-            <li>Kancelář: {{ employee.office_location }}</li>
+            {% if employee.office_location %}
+                <li>Kancelář: {{ employee.office_location }}</li>
+            {% endif %}
         </ol>
     </article>
     <div id="description-link">
         <p id="employee_description">{{ employee.description }}</p>
 
-        <a id="accounts-link" href="{{ path('app_employee_account_details', {id: employee.id}) }}">Účty</a>
-        <a id="accounts-link" href="#">Úprava</a>
+        <a class="accounts-link" href="{{ path('app_employee_account_details', {id: employee.id}) }}">Účty</a>
+        <a class="accounts-link" href="{{ path('app_employee_edit', { id: employee.id }) }}">Úprava</a> <!--id="accounts-link">>
+
     </div>
 </section>
 {% endblock %}

@@ -1,14 +1,14 @@
-/* Form container styling */
+
 .form {
     padding: 2rem;
     margin: 1rem auto;
     background-color: #dedede;
     max-width: 40rem;
     box-sizing: border-box;
+    width: 100%;
 }
 
-/* Fieldset styling */
-.form fieldset {
+fieldset {
     border: 0.0625rem solid #ddd;
     padding: 1.5rem;
     background-color: #f9f9f9;
@@ -16,24 +16,15 @@
     border-radius: 0.3125rem;
 }
 
-/* Fieldset legend styling */
-.form fieldset legend {
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-/* Label styling */
-.form label {
-    font-size: 150%;
+label {
+    font-size: 100%;
     font-weight: bold;
     color: #333;
     margin-bottom: 0.5rem;
     display: block;
 }
 
-/* Input, select, and textarea styling */
-.form input, .form select, .form textarea {
+input,  select , textarea {
     font-size: 100%;
     width: 100%;
     padding: 0.5rem;
@@ -43,7 +34,13 @@
     box-sizing: border-box;
 }
 
-/* Submit button styling */
+
+textarea {
+    min-height: 6rem;
+    resize: vertical;
+}
+
+
 .submit-button {
 
     padding: 0.625rem;
@@ -57,7 +54,7 @@
     cursor: pointer;
 }
 
-/* Submit button hover effect */
+
 .submit-button:hover {
     background-color: #0073e6;
 }
@@ -66,14 +63,14 @@
     font-size: 100%;
 }
 
-/* Error styling */
+
 .form .form-error {
     color: red;
     font-size: 0.875rem;
     margin-top: 0.5rem;
 }
 
-/* Remove form section styling */
+
 .remove {
     padding: 1.5rem;
     background-color: #ffefef;
@@ -92,4 +89,22 @@
 .remove strong {
     font-weight: bold;
     color: #a94442;
+}
+
+
+#employee_role_ids {
+    max-height: 200px;
+    width: 100%;
+    overflow-y: auto;
+    padding-right: 1rem;
+    border: 0.0625rem solid #ddd;
+    border-radius: 0.3125rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+#employee_role_ids label {
+    font-size: 80%;
+
 }
