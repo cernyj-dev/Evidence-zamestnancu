@@ -72,7 +72,7 @@ class AccountController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $id = $this->accountOperation->remove($account);
+            $this->accountOperation->remove($account);
 
             return $this->redirectToRoute('app_employee_account_details', ['id' => $employee_id]);
         }
