@@ -37,7 +37,7 @@ class EmployeeController extends AbstractController
         ]);
     }
 
-    #[Route('/employee/{id}', name: 'app_employee_details', requirements: ['id' => '\d+'])]
+    #[Route('/employees/{id}', name: 'app_employee_details', requirements: ['id' => '\d+'])]
     public function show(Employee $employee): Response
     {
         $rolesById = $this->roleRepository->findAllReindexedById();

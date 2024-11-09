@@ -16,10 +16,7 @@ class RoleType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Název role',
-                'required' => true,
-                'constraints' => [
-                    new NotBlank(['message' => 'This field cannot be empty']),
-                ]
+                'required' => true
             ])
         ;
     }

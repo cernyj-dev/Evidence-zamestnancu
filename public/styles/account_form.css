@@ -9,7 +9,7 @@
 }
 
 /* Fieldset styling */
-fieldset {
+.form fieldset {
     border: 0.0625rem solid #ddd;
     padding: 1.5rem;
     background-color: #f9f9f9;
@@ -17,14 +17,15 @@ fieldset {
     border-radius: 0.3125rem;
 }
 
-fieldset legend {
+/* Optional fieldset legend (if needed) */
+.form fieldset legend {
     font-weight: bold;
     color: #333;
     margin-bottom: 1rem;
 }
 
 /* Label styling */
-fieldset label {
+.form label {
     font-size: 150%;
     font-weight: bold;
     color: #333;
@@ -33,7 +34,7 @@ fieldset label {
 }
 
 /* Input widget styling */
-fieldset input, fieldset select, fieldset textarea {
+.form input, .form select, .form textarea {
     font-size: 100%;
     width: 100%;
     padding: 0.5rem;
@@ -43,7 +44,7 @@ fieldset input, fieldset select, fieldset textarea {
     box-sizing: border-box;
 }
 
-/* Submit button */
+/* Submit button styling */
 .submit-button {
     padding: 0.625rem;
     background-color: #333;
@@ -53,14 +54,16 @@ fieldset input, fieldset select, fieldset textarea {
     width: 100%;
     margin-top: 1rem;
     text-align: center;
+    cursor: pointer;
 }
 
+/* Submit button hover effect */
 .submit-button:hover {
     background-color: #0073e6;
 }
 
 /* Error styling */
-fieldset .form-error {
+.form .form-error {
     color: red;
     font-size: 0.875rem;
     margin-top: 0.5rem;
