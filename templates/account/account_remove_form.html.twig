@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets_specific %}
+    <link rel="stylesheet" href="{{ asset('/styles/form.css') }}">
+{% endblock %}
+
+{% block content %}
+    <h1 class="page-title">{{ title }}</h1>
+
+    <section class="remove">
+        <p>Skutečně chcete odstranit účet <strong>{{ account.name }}</strong>? Tato akce je nevratná.</p>
+
+        {{ form(form) }}
+    </section>
+{% endblock %}

@@ -1,5 +1,4 @@
-/*inspired by ChatGPT*/
-/* General form container styling */
+/* Form container styling */
 .form {
     padding: 2rem;
     margin: 1rem auto;
@@ -9,7 +8,7 @@
 }
 
 /* Fieldset styling */
-fieldset {
+.form fieldset {
     border: 0.0625rem solid #ddd;
     padding: 1.5rem;
     background-color: #f9f9f9;
@@ -17,14 +16,15 @@ fieldset {
     border-radius: 0.3125rem;
 }
 
-fieldset legend {
+/* Fieldset legend styling */
+.form fieldset legend {
     font-weight: bold;
     color: #333;
     margin-bottom: 1rem;
 }
 
 /* Label styling */
-fieldset label {
+.form label {
     font-size: 150%;
     font-weight: bold;
     color: #333;
@@ -32,8 +32,8 @@ fieldset label {
     display: block;
 }
 
-/* Input widget styling */
-fieldset input, fieldset select, fieldset textarea {
+/* Input, select, and textarea styling */
+.form input, .form select, .form textarea {
     font-size: 100%;
     width: 100%;
     padding: 0.5rem;
@@ -43,8 +43,9 @@ fieldset input, fieldset select, fieldset textarea {
     box-sizing: border-box;
 }
 
-/* Submit button */
+/* Submit button styling */
 .submit-button {
+
     padding: 0.625rem;
     background-color: #333;
     color: white;
@@ -53,15 +54,42 @@ fieldset input, fieldset select, fieldset textarea {
     width: 100%;
     margin-top: 1rem;
     text-align: center;
+    cursor: pointer;
 }
 
+/* Submit button hover effect */
 .submit-button:hover {
     background-color: #0073e6;
 }
 
+.form button[type="submit"]{
+    font-size: 100%;
+}
+
 /* Error styling */
-fieldset .form-error {
+.form .form-error {
     color: red;
     font-size: 0.875rem;
     margin-top: 0.5rem;
+}
+
+/* Remove form section styling */
+.remove {
+    padding: 1.5rem;
+    background-color: #ffefef;
+    border: 0.0625rem solid #f5c6cb;
+    border-radius: 0.3125rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.remove p {
+    font-size: 120%;
+    color: #a94442;
+    margin-bottom: 1rem;
+}
+
+.remove strong {
+    font-weight: bold;
+    color: #a94442;
 }

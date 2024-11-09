@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Account;
 use App\Entity\Employee;
 use App\Form\AccountType;
+use App\Form\RemoveType;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Operation\AccountOperation;
 use App\Repository\AccountRepository;
@@ -42,8 +43,9 @@ class AccountController extends AbstractController
         if (!$employee) {
             throw $this->createNotFoundException("Employee not found");
         }
-
+        $account_made = false;
         if (!$account) {
+            $account_made = true;
             $account = new Account();
             $account->setEmployeeId($employee_id);
         }
@@ -58,9 +60,28 @@ class AccountController extends AbstractController
         }
 
         return $this->render('account/account_form.html.twig', [
-            'title' => $account ? 'Upravování účtu' : 'Vytváření účtu',
+            'title' => $account_made ? 'Vytváření účtu' : 'Upravování účtu',
             'form' => $form->createView(),
-            'button_text' => $account ? 'Upravit' : 'Vytvořit'
+            'button_text' => $account_made ? 'Vytvořit' : 'Upravit'
         ]);
     }
+    #[Route('/{employee_id}/accounts/{id}/remove', name: 'app_account_remove', requirements: ['employee_id' => '\d+', 'id' => '\d+'])]
+    public function remove(int $employee_id, Account $account, Request $request, EntityManagerInterface $manager): Response
+    {
+        $form = $this->createForm(RemoveType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $id = $this->accountOperation->remove($account);
+
+            return $this->redirectToRoute('app_employee_account_details', ['id' => $employee_id]);
+        }
+
+        return $this->render('account/account_remove_form.html.twig', [
+            'title' => 'Odstranit účet',
+            'account' => $account,
+            'form' => $form->createView(),
+        ]);
+    }
+
 }
