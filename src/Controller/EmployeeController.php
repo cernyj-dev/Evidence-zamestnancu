@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Employee;
-use App\Entity\Role;
 use App\Form\EmployeeType;
 use App\Repository\EmployeeRepository;
 use App\Repository\RoleRepository;
@@ -71,7 +70,7 @@ class EmployeeController extends AbstractController
 
         return $this->render('employee/employee_form.html.twig', [
             'title' => $employee ? 'Upravení zaměstnance' : 'Vytvoření zaměstnance',
-            'form' => $form->createView(),
+            'form' => $form,
             'button_text' => $employee ? 'Upravit' : 'Vytvořit'
         ]);
 

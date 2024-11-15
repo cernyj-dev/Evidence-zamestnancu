@@ -5,7 +5,6 @@ namespace App\Form;
 use App\Entity\Employee;
 use App\Repository\RoleRepository;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -16,7 +15,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EmployeeType extends AbstractType
 {
-    private $role_choices;
+    private array $role_choices;
     public function __construct(RoleRepository $role_repository){
         $this->role_choices = $this->getRoleChoices($role_repository);
     }

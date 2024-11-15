@@ -61,7 +61,7 @@ class AccountController extends AbstractController
 
         return $this->render('account/account_form.html.twig', [
             'title' => $account_made ? 'Vytváření účtu' : 'Upravování účtu',
-            'form' => $form->createView(),
+            'form' => $form,
             'button_text' => $account_made ? 'Vytvořit' : 'Upravit'
         ]);
     }
@@ -80,7 +80,7 @@ class AccountController extends AbstractController
         return $this->render('account/account_remove_form.html.twig', [
             'title' => 'Odstranit účet',
             'account' => $account,
-            'form' => $form->createView(),
+            'form' => $form,
         ]);
     }
 

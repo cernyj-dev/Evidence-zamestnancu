@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Role;
 use App\Form\RoleType;
-use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\RoleRepository;
 use App\Operation\RoleOperation;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -43,7 +42,7 @@ class RoleController extends AbstractController
 
         return $this->render('roles/role_form.html.twig', [
             'title' => $role ? 'Upravit roli' : 'Nová role',
-            'form' => $form->createView(),
+            'form' => $form,
             'button_text' => $role ? 'Upravit' : 'Vytvořit'
         ]);
     }
