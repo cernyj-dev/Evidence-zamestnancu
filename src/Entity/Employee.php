@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EmployeeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -36,8 +38,42 @@ class Employee
     #[ORM\Column(length: 255)]
     private ?string $phone;
 
-    #[ORM\Column(type: 'array', nullable: true)]
-    private ?array $role_ids = null;
+    /**
+     * Bidirectional - Many Employees have Many Roles. (OWNING SIDE)
+     * @var Collection<int, Role>
+     */
+    #[ORM\ManyToMany(targetEntity: Role::class, inversedBy: 'employees')]
+    #[ORM\JoinTable(name: 'employees_roles')]
+    private Collection $roles;
+
+    public function __construct(){
+        $this->roles = new ArrayCollection();
+    }
+
+    public function getRoles(): Collection
+    {
+        return $this->roles;
+    }
+
+    public function addRole(Role $role): static
+    {
+        if (!$this->roles->contains($role)) {
+            $this->roles->add($role);
+            $role->addEmployee($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRole(Role $role): static
+    {
+        if($this->roles->contains($role)){
+            $this->roles->removeElement($role);
+            $role->removeEmployee($this);
+        }
+
+        return $this;
+    }
 
     public function getId(): ?int
     {
@@ -120,29 +156,4 @@ class Employee
 
         return $this;
     }
-
-    public function getRoles(): ?array
-    {
-        return $this->role_ids;
-    }
-
-    public function getRoleIds(): ?array
-    {
-        return $this->role_ids;
-    }
-
-    public function setRoles(?array $role_ids): static
-    {
-        $this->role_ids = $role_ids;
-
-        return $this;
-    }
-
-    public function setRoleIds(?array $role_ids): static
-    {
-        $this->role_ids = $role_ids;
-
-        return $this;
-    }
-
 }
