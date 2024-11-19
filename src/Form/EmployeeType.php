@@ -17,6 +17,11 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EmployeeType extends AbstractType
 {
+    public function __construct(
+        private RoleRepository $roleRepository,
+    ){
+
+}
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -41,13 +46,13 @@ class EmployeeType extends AbstractType
                 'required' => true,
             ])
 
-            ->add('role_ids', EntityType::class, [
+            ->add('roles', EntityType::class, [
                 'class' => Role::class,
                 'multiple' => true,
                 'expanded' => true,
                 'label' => 'Výběr rolí',
                 'required' => false,
-                'choice_label' => 'title',
+                'choice_label' => 'name',
             ])
 
 

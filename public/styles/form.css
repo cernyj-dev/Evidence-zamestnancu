@@ -92,7 +92,7 @@ textarea {
 }
 
 
-#employee_role_ids {
+#employee_roles {
     max-height: 200px;
     width: 100%;
     overflow-y: auto;
@@ -104,7 +104,7 @@ textarea {
 }
 
 
-#employee_role_ids label {
+#employee_roles label {
     font-size: 80%;
 
 }
