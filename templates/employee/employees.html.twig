@@ -15,7 +15,7 @@
             <dl>
                 <dt>Funkce</dt>
                     {% for role in employee.roles %}
-                        <dd>{{ all_roles[role].name }}</dd>
+                        <dd>{{ role.name }}</dd>
                     {% else %}
                         <dd>Nemá žádnou roli.</dd>
                     {% endfor %}
