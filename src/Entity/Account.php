@@ -1,5 +1,8 @@
 <?php
 
+// when working with associations, I used: https://www.doctrine-project.org/projects/doctrine-orm/en/stable/reference/working-with-associations.html#working-with-associations
+// and https://www.doctrine-project.org/projects/doctrine-orm/en/stable/reference/association-mapping.html#association-mapping
+
 namespace App\Entity;
 
 use App\Repository\AccountRepository;

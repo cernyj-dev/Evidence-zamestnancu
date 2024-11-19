@@ -1,6 +1,9 @@
 <?php
 declare(strict_types=1);
 
+// when working with associations, I used: https://www.doctrine-project.org/projects/doctrine-orm/en/stable/reference/working-with-associations.html#working-with-associations
+// and https://www.doctrine-project.org/projects/doctrine-orm/en/stable/reference/association-mapping.html#association-mapping
+
 namespace App\Operation;
 
 use App\Entity\Employee;
