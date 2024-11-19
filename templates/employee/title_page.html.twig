@@ -4,7 +4,16 @@
     <link rel="stylesheet" href="{{ asset('/styles/title_page_specific.css') }}">
 {% endblock %}
 
-
+{% block search %}
+    <section class="filter-section">
+        <h2>Vyhledávání zaměstnanců</h2>
+        {{ form_start(filter) }}
+        {{ form_widget(filter) }}
+        {{ form_errors(filter) }}
+        <button type="submit">Vyhledat</button>
+        {{ form_end(filter) }}
+    </section>
+{% endblock %}
 
 {% block content %}
     <section id="create-employee-link">

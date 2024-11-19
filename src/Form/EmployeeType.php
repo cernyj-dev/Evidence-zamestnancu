@@ -21,11 +21,11 @@ class EmployeeType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Jméno a příjmení',
+                'label' => 'Jméno a příjmení *',
                 'required' => true,
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Email',
+                'label' => 'Email *',
                 'required' => true,
             ])
             ->add('office_location', TextType::class, [
@@ -37,7 +37,7 @@ class EmployeeType extends AbstractType
                 'required' => false,
             ])
             ->add('phone', TextType::class, [
-                'label' => 'Telefon',
+                'label' => 'Telefon *',
                 'required' => true,
             ])
 
@@ -45,7 +45,7 @@ class EmployeeType extends AbstractType
                 'class' => Role::class,
                 'multiple' => true,
                 'expanded' => true,
-                'label' => 'Výběr rolí',
+                'label' => 'Výběr rolí ',
                 'required' => false,
                 'choice_label' => 'name',
             ])

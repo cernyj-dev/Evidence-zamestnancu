@@ -4,36 +4,48 @@
     <link rel="stylesheet" href="{{ asset('/styles/employees_specific.css') }}">
 {% endblock %}
 
+{% block search %}
+    <section class="filter-section">
+        <h2>Vyhledávání zaměstnanců</h2>
+        {{ form_start(filter) }}
+        {{ form_widget(filter) }}
+        {{ form_errors(filter) }}
+        <button type="submit">Vyhledat</button>
+        {{ form_end(filter) }}
+    </section>
+{% endblock %}
+
 {% block content %}
 <h1 class="page-title">Vyhledaní zaměstnanci</h1>
-<ol class="found-employees">
-    {% for employee in employees %}
-    <li>
-        <section class="search-result">
-            <h2>{{ employee.name }}</h2>
-            <img src="{{ employee.image_url ?: '/images/3.jpg' }}" alt="employee {{ employee.name }}">
-            <dl>
-                <dt>Funkce</dt>
-                    {% for role in employee.roles %}
-                        <dd>{{ role.name }}</dd>
-                    {% else %}
-                        <dd>Nemá žádnou roli.</dd>
-                    {% endfor %}
-                <dt>Kontakt</dt>
-                    <dd><a href="mailto:{{ employee.email }}">{{ employee.email }}</a></dd>
-            </dl>
-            <div class="search-result-links">
-                <a href="{{ path('app_employee_details', {id: employee.id}) }}">Detail</a>
-                <a href="{{ path('app_employee_edit', { id: employee.id }) }}">Úprava</a>
-                <a href="{{ path('app_employee_account_details', {id: employee.id}) }}">Účty</a>
-            </div>
+    {% if employees is not empty %}
+        <ol class="found-employees">
+            {% for employee in employees %}
+            <li>
+                <section class="search-result">
+                    <h2>{{ employee.name }}</h2>
+                    <img src="{{ employee.image_url ?: '/images/3.jpg' }}" alt="employee {{ employee.name }}">
+                    <dl>
+                        <dt>Funkce</dt>
+                            {% for role in employee.roles %}
+                                <dd>{{ role.name }}</dd>
+                            {% else %}
+                                <dd>Nemá žádnou roli.</dd>
+                            {% endfor %}
+                        <dt>Kontakt</dt>
+                            <dd><a href="mailto:{{ employee.email }}">{{ employee.email }}</a></dd>
+                    </dl>
+                    <div class="search-result-links">
+                        <a href="{{ path('app_employee_details', {id: employee.id}) }}">Detail</a>
+                        <a href="{{ path('app_employee_edit', { id: employee.id }) }}">Úprava</a>
+                        <a href="{{ path('app_employee_account_details', {id: employee.id}) }}">Účty</a>
+                    </div>
 
-        </section>
-    </li>
+                </section>
+            </li>
+            {% endfor %}
     {% else %}
-        <li>Žádní zaměstnanci nenalezeni.</li>
-    {% endfor %}
-
+        <h2 id="employees-not-found">Žádní zaměstnanci nenalezeni.</h2>
+    {% endif %}
 </ol>
 
 {% endblock %}

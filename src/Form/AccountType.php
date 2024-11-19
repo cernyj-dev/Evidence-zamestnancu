@@ -20,16 +20,16 @@ class AccountType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Název účtu',
+                'label' => 'Název účtu *',
                 'required' => true
             ])
             ->add('type', TextType::class, [
-                'label' => 'Typ účtu',
+                'label' => 'Typ účtu *',
                 'required' => true
 
             ])
             ->add('expiration', DateType::class, [
-                'label' => 'Datum expirace',
+                'label' => 'Datum expirace *',
                 'widget' => 'single_text',
                 'input'  => 'datetime_immutable',
                 'required' => true

@@ -1,11 +1,14 @@
 <?php
 
+// used this for redirecting from title page: https://symfony.com/doc/current/controller.html#controller-redirect
+// when it comes to filters, I drew only from the source code of my teacher
+
 namespace App\Controller;
 
 use App\Entity\Employee;
 use App\Form\EmployeeType;
 use App\Repository\EmployeeRepository;
-use App\Repository\RoleRepository;
+use App\Form\EmployeeFilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,21 +22,45 @@ class EmployeeController extends AbstractController
         private EmployeeOperation $employeeOperation
     ){}
     #[Route('/', name: 'app_homepage')]
-    public function titlePage(): Response
+    public function titlePage(Request $request): Response
     {
+        $form = $this->createForm(EmployeeFilterType::class, options:[
+            'method' => 'GET',
+        ]);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            return $this->redirectToRoute('app_employees', $request->query->all());
+        }
+
         return $this->render('employee/title_page.html.twig', [
             'title' => 'Titulní stránka',
+            'filter' => $form,
             'employees' => $this->employeeRepository->findBy([], ['id' => 'DESC'])
         ]);
     }
 
     #[Route('/employees', name: 'app_employees')]
-    public function index(): Response
-    { //TODO: app_employees should be a web page showing searched employees- meaning there wont be any longer employees => findAll
-      //TODO: but rather delegated found employees
+    public function index(Request $request): Response
+    {
+        $form = $this->createForm(EmployeeFilterType::class, options:[
+           'method' => 'GET',
+        ]);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $employees = $this->employeeRepository->findByFilter($form->getData());
+        }
+        else{
+            $employees = $this->employeeRepository->findAll();
+        }
+
         return $this->render('employee/employees.html.twig', [
             'title' => 'Seznam zaměstnanců',
-            'employees' => $this->employeeRepository->findAll(),
+            'employees' => $employees,
+            'filter' => $form,
         ]);
     }
 
