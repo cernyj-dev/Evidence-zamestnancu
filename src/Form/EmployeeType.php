@@ -17,23 +17,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EmployeeType extends AbstractType
 {
-    private array $role_choices;
-    public function __construct(RoleRepository $role_repository){
-        $this->role_choices = $this->getRoleChoices($role_repository);
-    }
-
-    private function getRoleChoices(RoleRepository $roleRepository): array
-    {
-        $roles = $roleRepository->findAll();
-        $choices = [];
-
-        foreach ($roles as $role) {
-            $choices[$role->getName()] = $role->getId();
-        }
-
-        return $choices;
-    }
-
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
