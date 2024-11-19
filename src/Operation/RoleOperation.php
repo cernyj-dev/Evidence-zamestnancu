@@ -20,11 +20,11 @@ class RoleOperation
         return $role->getId();
     }
 
-    public function remove(Role $role): int
+    public function remove(Role $role): Role
     {
         $this->manager->remove($role);
         $this->manager->flush();
 
-        return $role->getId();
+        return $role;
     }
 }

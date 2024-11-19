@@ -20,9 +20,15 @@ class EmployeeOperation
         return $employee->getId();
     }
 
-    public function remove(Employee $employee): void
+    public function remove(Employee $employee): Employee
     {
+        foreach($employee->getAccounts() as $account){
+            $this->manager->remove($account);
+        }
+
         $this->manager->remove($employee);
         $this->manager->flush();
+
+        return $employee;
     }
 }

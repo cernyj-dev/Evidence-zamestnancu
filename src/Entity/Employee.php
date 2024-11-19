@@ -46,8 +46,16 @@ class Employee
     #[ORM\JoinTable(name: 'employees_roles')]
     private Collection $roles;
 
+    /**
+     * Bidirectional - One Employee can have many Accounts (INVERSE SIDE)
+     * @var Collection<int, Account>
+     */
+    #[ORM\ManyToMany(targetEntity: Account::class, mappedBy: 'employee')]
+    private Collection $accounts;
+
     public function __construct(){
         $this->roles = new ArrayCollection();
+        $this->accounts = new ArrayCollection();
     }
 
     public function getRoles(): Collection
@@ -61,17 +69,37 @@ class Employee
             $this->roles->add($role);
             $role->addEmployee($this);
         }
-
         return $this;
     }
 
     public function removeRole(Role $role): static
     {
-        if($this->roles->contains($role)){
-            $this->roles->removeElement($role);
-            $role->removeEmployee($this);
+        if($this->roles->removeElement($role)){
+            if($role->getEmployees()->contains($this)) {
+                $role->removeEmployee($this);
+            }
         }
+        return $this;
+    }
 
+    public function getAccounts(): Collection{
+        return $this->accounts;
+    }
+
+    public function addAccount(Account $account): static{
+        if(!$this->accounts->contains($account)){
+            $this->accounts->add($account);
+            $account->setEmployee($this);
+        }
+        return $this;
+    }
+
+    public function removeAccount(Account $account): static{
+        if($this->accounts->removeElement($account)){
+            if($account->getEmployee() === $this) {
+                $account->setEmployee(null);
+            }
+        }
         return $this;
     }
 

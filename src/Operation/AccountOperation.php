@@ -20,9 +20,11 @@ class AccountOperation
         return $account->getId();
     }
 
-    public function remove(Account $account): void
+    public function remove(Account $account): Account
     {
         $this->manager->remove($account);
         $this->manager->flush();
+
+        return $account;
     }
 }

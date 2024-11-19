@@ -14,7 +14,7 @@ class Account
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(inversedBy: 'accounts')]
     #[ORM\JoinColumn(nullable:false)]
     private ?Employee $employee = null;
 
@@ -37,7 +37,7 @@ class Account
         return $this->employee;
     }
 
-    public function setEmployee(Employee $employee): static
+    public function setEmployee(?Employee $employee): static
     {
         $this->employee = $employee;
 
