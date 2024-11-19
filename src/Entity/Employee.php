@@ -50,7 +50,7 @@ class Employee
      * Bidirectional - One Employee can have many Accounts (INVERSE SIDE)
      * @var Collection<int, Account>
      */
-    #[ORM\ManyToMany(targetEntity: Account::class, mappedBy: 'employee')]
+    #[ORM\OneToMany(targetEntity: Account::class, mappedBy: 'employee')]
     private Collection $accounts;
 
     public function __construct(){

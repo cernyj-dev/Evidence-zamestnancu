@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Employee;
+use App\Entity\Role;
 use App\Repository\RoleRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -56,14 +58,13 @@ class EmployeeType extends AbstractType
                 'required' => true,
             ])
 
-            ->add('role_ids', ChoiceType::class, [
-                'choices' => $this->role_choices,
+            ->add('role_ids', EntityType::class, [
+                'class' => Role::class,
                 'multiple' => true,
                 'expanded' => true,
                 'label' => 'Výběr rolí',
                 'required' => false,
-
-
+                'choice_label' => 'title',
             ])
 
 

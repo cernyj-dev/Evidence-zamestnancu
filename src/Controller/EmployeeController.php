@@ -16,7 +16,6 @@ class EmployeeController extends AbstractController
 {
     public function __construct(
         private EmployeeRepository $employeeRepository,
-        private RoleRepository $roleRepository,
         private EmployeeOperation $employeeOperation
     ){}
     #[Route('/', name: 'app_homepage')]
@@ -30,26 +29,20 @@ class EmployeeController extends AbstractController
 
     #[Route('/employees', name: 'app_employees')]
     public function index(): Response
-    {
-        $rolesById = $this->roleRepository->findAllReindexedById();
-
+    { //TODO: app_employees should be a web page showing searched employees- meaning there wont be any longer employees => findAll
+      //TODO: but rather delegated found employees
         return $this->render('employee/employees.html.twig', [
             'title' => 'Seznam zaměstnanců',
             'employees' => $this->employeeRepository->findAll(),
-            'all_roles' => $rolesById,
         ]);
     }
 
     #[Route('/employees/{id}', name: 'app_employee_details', requirements: ['id' => '\d+'])]
     public function show(Employee $employee): Response
     {
-        $rolesById = $this->roleRepository->findAllReindexedById();
-
         return $this->render('employee/employee_details.html.twig', [
             'title' => "Detail: {$employee->getName()}",
             'employee' => $employee,
-            'all_roles' => $rolesById,
-
         ]);
     }
 
@@ -59,7 +52,6 @@ class EmployeeController extends AbstractController
     {
         $form = $this->createForm(EmployeeType::class, $employee);
         $form->handleRequest($request);
-
 
 
         if($form->isSubmitted() && $form->isValid()){

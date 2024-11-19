@@ -26,6 +26,8 @@ class EmployeeOperation
             $this->manager->remove($account);
         }
 
+        $this->manager->persist($employee);
+
         $this->manager->remove($employee);
         $this->manager->flush();
 
