@@ -17,11 +17,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EmployeeType extends AbstractType
 {
-    public function __construct(
-        private RoleRepository $roleRepository,
-    ){
-
-}
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
