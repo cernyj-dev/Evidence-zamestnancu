@@ -1,5 +1,5 @@
 <?php
-
+// this class inspired by: https://gitlab.fit.cvut.cz/BI-TWA/B241/tutorial/-/commit/737efcb3eaae65b673d011ad586c04cd22ef2377
 namespace App\Controller\Filter;
 
 use Doctrine\ORM\QueryBuilder;
