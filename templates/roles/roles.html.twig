@@ -1,0 +1,28 @@
+{% extends '/layout.html.twig' %}
+
+{% block stylesheets_specific %}
+    <link rel="stylesheet" href="{{ asset('/styles/roles_specific.css') }}">
+{% endblock %}
+
+{% block content %}
+<div id="add-role-container">
+    <h1 class="page-title">{{ title }}</h1>
+
+    <a id="add-role-link" href="{{ path('app_role_create') }}">Přidat roli</a>
+</div>
+    <section class="roles">
+        {% if all_roles is not empty %}
+            <ul>
+                {% for role in all_roles %}
+                    <li>
+                        <p>{{ role.name }}</p>
+                        <a href="{{ path('app_role_edit', {id: role.id}) }}">Upravit roli</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h2>Nejsou registrovány žádné role.</h2>
+        {% endif %}
+    </section>
+
+{% endblock %}

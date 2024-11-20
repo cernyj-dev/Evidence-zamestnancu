@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\AccountRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AccountRepository::class)]
@@ -23,7 +24,7 @@ class Account
     private ?string $type = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $expiration = null;
+    private ?DateTimeImmutable $expiration = null;
 
     public function getId(): ?int
     {
@@ -66,12 +67,12 @@ class Account
         return $this;
     }
 
-    public function getExpiration(): ?\DateTimeImmutable
+    public function getExpiration(): ?DateTimeImmutable
     {
         return $this->expiration;
     }
 
-    public function setExpiration(?\DateTimeImmutable $expiration): static
+    public function setExpiration(?DateTimeImmutable $expiration): static
     {
         $this->expiration = $expiration;
 

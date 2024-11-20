@@ -7,6 +7,9 @@
 {% block content %}
 
 <h1 class="page-title">Detail účtu zaměstnance: {{ employee.name }}</h1>
+<div id="add-account-container">
+    <a id="add-account-link" href="{{ path('app_account_create', { employee_id: employee.id }) }}">Přidat účet</a>
+</div>
 <section class="accounts">
     {% if accounts is not empty %}
     <ul>
@@ -27,8 +30,11 @@
                         </time>
                     </dd>
                 </dl>
-                <a href="/edit" class="account-edit-link">
+                <a class="account-link" href="{{ path('app_account_edit', { employee_id: employee.id, id:account.id}) }}">
                     Upravit účet
+                </a>
+                <a class="account-link" href="{{ path('app_account_remove', {employee_id: employee.id, id: account.id}) }}">
+                    Smazat účet
                 </a>
             </li>
         {% endfor %}

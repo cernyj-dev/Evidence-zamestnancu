@@ -1,0 +1,32 @@
+{% extends '/layout.html.twig' %}
+
+{% block stylesheets_specific %}
+    <link rel="stylesheet" href="{{ asset('/styles/form.css') }}">
+{% endblock %}
+
+{% block content %}
+    <h1 class="page-title">{{ title }}</h1>
+
+    <section class="form">
+        {{ form_start(form) }}
+
+        <fieldset>
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name) }}
+            {{ form_errors(form.name) }}
+
+            {{ form_label(form.type) }}
+            {{ form_widget(form.type) }}
+            {{ form_errors(form.type) }}
+
+            {{ form_label(form.expiration) }}
+            {{ form_widget(form.expiration) }}
+            {{ form_errors(form.expiration) }}
+        </fieldset>
+
+        {{ form_rest(form) }}
+        <button type="submit" class="submit-button">{{ button_text }}</button>
+
+        {{ form_end(form) }}
+    </section>
+{% endblock %}

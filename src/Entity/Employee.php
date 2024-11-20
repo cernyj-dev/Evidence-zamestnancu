@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\EmployeeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: EmployeeRepository::class)]
 class Employee
@@ -14,12 +16,15 @@ class Employee
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    #[Assert\NotBlank(message: "Jméno musí být vyplněno.")]
+    private ?string $name;
 
     #[ORM\Column(length: 255, unique: true)]
-    private ?string $email = null;
+    #[Assert\NotBlank(message: "Email musí být vyplněn")]
+    #[Assert\Email(message: "Prosím zadejte syntakticky validní emailovou adresu.")]
+    private ?string $email;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $image_url = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -29,7 +34,7 @@ class Employee
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $phone = null;
+    private ?string $phone;
 
     #[ORM\Column(type: 'array', nullable: true)]
     private ?array $role_ids = null;
@@ -75,6 +80,11 @@ class Employee
         return $this;
     }
 
+    public function getOfficeLocation(): ?string
+    {
+        return $this->office_location;
+    }
+
     public function getoffice_location(): ?string
     {
         return $this->office_location;
@@ -116,7 +126,19 @@ class Employee
         return $this->role_ids;
     }
 
+    public function getRoleIds(): ?array
+    {
+        return $this->role_ids;
+    }
+
     public function setRoles(?array $role_ids): static
+    {
+        $this->role_ids = $role_ids;
+
+        return $this;
+    }
+
+    public function setRoleIds(?array $role_ids): static
     {
         $this->role_ids = $role_ids;
 
