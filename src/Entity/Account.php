@@ -1,5 +1,8 @@
 <?php
 
+// when working with associations, I used: https://www.doctrine-project.org/projects/doctrine-orm/en/stable/reference/working-with-associations.html#working-with-associations
+// and https://www.doctrine-project.org/projects/doctrine-orm/en/stable/reference/association-mapping.html#association-mapping
+
 namespace App\Entity;
 
 use App\Repository\AccountRepository;
@@ -14,8 +17,9 @@ class Account
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $employee_id = null;
+    #[ORM\ManyToOne(inversedBy: 'accounts')]
+    #[ORM\JoinColumn(nullable:false)]
+    private ?Employee $employee = null;
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
@@ -31,14 +35,14 @@ class Account
         return $this->id;
     }
 
-    public function getEmployeeId(): ?int
+    public function getEmployee(): ?Employee
     {
-        return $this->employee_id;
+        return $this->employee;
     }
 
-    public function setEmployeeId(int $employee_id): static
+    public function setEmployee(?Employee $employee): static
     {
-        $this->employee_id = $employee_id;
+        $this->employee = $employee;
 
         return $this;
     }

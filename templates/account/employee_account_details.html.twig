@@ -11,9 +11,9 @@
     <a id="add-account-link" href="{{ path('app_account_create', { employee_id: employee.id }) }}">Přidat účet</a>
 </div>
 <section class="accounts">
-    {% if accounts is not empty %}
+    {% if employee.accounts is not empty %}
     <ul>
-        {% for account in accounts %}
+        {% for account in employee.accounts %}
             <li>
                 <h3>{{ loop.index }}</h3>
                 <dl>

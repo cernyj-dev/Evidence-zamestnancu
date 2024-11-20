@@ -1,7 +1,8 @@
 <?php
-
+// findByFilter inspired by: https://gitlab.fit.cvut.cz/BI-TWA/B241/tutorial/-/commit/737efcb3eaae65b673d011ad586c04cd22ef2377
 namespace App\Repository;
 
+use App\Controller\Filter\EmployeeFilter;
 use App\Entity\Employee;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -14,6 +15,13 @@ class EmployeeRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Employee::class);
+    }
+
+    public function findByFilter(EmployeeFilter $filter){
+        return $filter->apply(
+            $this->createQueryBuilder('e'))
+            ->getQuery()->getResult();
+
     }
 
 //    /**

@@ -21,10 +21,9 @@ class RoleController extends AbstractController
     #[Route('/', name: 'app_employee_roles')]
     public function roleDisplay(): Response
     {
-        $all_roles = $this->roleRepository->findAll();
         return $this->render('roles/roles.html.twig', [
             'title' => "Všechny role",
-            'all_roles' => $all_roles,
+            'all_roles' => $this->roleRepository->findAll(),
         ]);
     }
     #[Route('/create', name: 'app_role_create')]

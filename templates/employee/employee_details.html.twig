@@ -13,7 +13,7 @@
         <h3>Funkce</h3>
         <ul>
             {% for role in employee.roles %}
-                <li>{{ all_roles[role].name }}</li>
+                <li>{{ role.name }}</li>
             {% else %}
                 <dd>Nemá žádnou roli.</dd>
             {% endfor %}

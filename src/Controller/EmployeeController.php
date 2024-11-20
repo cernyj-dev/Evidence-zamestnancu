@@ -1,11 +1,15 @@
 <?php
 
+// used this for redirecting from title page: https://symfony.com/doc/current/controller.html#controller-redirect
+// when it comes to filters, I drew only from the source code of my teacher
+//      from: https://gitlab.fit.cvut.cz/BI-TWA/B241/tutorial/-/commit/737efcb3eaae65b673d011ad586c04cd22ef2377
+
 namespace App\Controller;
 
 use App\Entity\Employee;
 use App\Form\EmployeeType;
 use App\Repository\EmployeeRepository;
-use App\Repository\RoleRepository;
+use App\Form\EmployeeFilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,40 +20,57 @@ class EmployeeController extends AbstractController
 {
     public function __construct(
         private EmployeeRepository $employeeRepository,
-        private RoleRepository $roleRepository,
         private EmployeeOperation $employeeOperation
     ){}
     #[Route('/', name: 'app_homepage')]
-    public function titlePage(): Response
+    public function titlePage(Request $request): Response
     {
+        $form = $this->createForm(EmployeeFilterType::class, options:[
+            'method' => 'GET',
+        ]);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            return $this->redirectToRoute('app_employees', $request->query->all());
+        }
+
         return $this->render('employee/title_page.html.twig', [
             'title' => 'Titulní stránka',
+            'filter' => $form,
             'employees' => $this->employeeRepository->findBy([], ['id' => 'DESC'])
         ]);
     }
 
     #[Route('/employees', name: 'app_employees')]
-    public function index(): Response
+    public function index(Request $request): Response
     {
-        $rolesById = $this->roleRepository->findAllReindexedById();
+        $form = $this->createForm(EmployeeFilterType::class, options:[
+           'method' => 'GET',
+        ]);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $employees = $this->employeeRepository->findByFilter($form->getData());
+        }
+        else{
+            $employees = $this->employeeRepository->findAll();
+        }
 
         return $this->render('employee/employees.html.twig', [
             'title' => 'Seznam zaměstnanců',
-            'employees' => $this->employeeRepository->findAll(),
-            'all_roles' => $rolesById,
+            'employees' => $employees,
+            'filter' => $form,
         ]);
     }
 
     #[Route('/employees/{id}', name: 'app_employee_details', requirements: ['id' => '\d+'])]
     public function show(Employee $employee): Response
     {
-        $rolesById = $this->roleRepository->findAllReindexedById();
-
         return $this->render('employee/employee_details.html.twig', [
             'title' => "Detail: {$employee->getName()}",
             'employee' => $employee,
-            'all_roles' => $rolesById,
-
         ]);
     }
 
@@ -59,7 +80,6 @@ class EmployeeController extends AbstractController
     {
         $form = $this->createForm(EmployeeType::class, $employee);
         $form->handleRequest($request);
-
 
 
         if($form->isSubmitted() && $form->isValid()){

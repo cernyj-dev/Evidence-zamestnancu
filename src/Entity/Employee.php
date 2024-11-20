@@ -1,8 +1,13 @@
 <?php
 
+// when working with associations, I used: https://www.doctrine-project.org/projects/doctrine-orm/en/stable/reference/working-with-associations.html#working-with-associations
+// and https://www.doctrine-project.org/projects/doctrine-orm/en/stable/reference/association-mapping.html#association-mapping
+
 namespace App\Entity;
 
 use App\Repository\EmployeeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -36,8 +41,70 @@ class Employee
     #[ORM\Column(length: 255)]
     private ?string $phone;
 
-    #[ORM\Column(type: 'array', nullable: true)]
-    private ?array $role_ids = null;
+    /**
+     * Bidirectional - Many Employees have Many Roles. (OWNING SIDE)
+     * @var Collection<int, Role>
+     */
+    #[ORM\ManyToMany(targetEntity: Role::class, inversedBy: 'employees')]
+    #[ORM\JoinTable(name: 'employees_roles')]
+    private Collection $roles;
+
+    /**
+     * Bidirectional - One Employee can have many Accounts (INVERSE SIDE)
+     * @var Collection<int, Account>
+     */
+    #[ORM\OneToMany(targetEntity: Account::class, mappedBy: 'employee')]
+    private Collection $accounts;
+
+    public function __construct(){
+        $this->roles = new ArrayCollection();
+        $this->accounts = new ArrayCollection();
+    }
+
+    public function getRoles(): Collection
+    {
+        return $this->roles;
+    }
+
+    public function addRole(Role $role): static
+    {
+        if (!$this->roles->contains($role)) {
+            $this->roles->add($role);
+            $role->addEmployee($this);
+        }
+        return $this;
+    }
+
+    public function removeRole(Role $role): static
+    {
+        if($this->roles->removeElement($role)){
+            if($role->getEmployees()->contains($this)) {
+                $role->removeEmployee($this);
+            }
+        }
+        return $this;
+    }
+
+    public function getAccounts(): Collection{
+        return $this->accounts;
+    }
+
+    public function addAccount(Account $account): static{
+        if(!$this->accounts->contains($account)){
+            $this->accounts->add($account);
+            $account->setEmployee($this);
+        }
+        return $this;
+    }
+
+    public function removeAccount(Account $account): static{
+        if($this->accounts->removeElement($account)){
+            if($account->getEmployee() === $this) {
+                $account->setEmployee(null);
+            }
+        }
+        return $this;
+    }
 
     public function getId(): ?int
     {
@@ -120,29 +187,4 @@ class Employee
 
         return $this;
     }
-
-    public function getRoles(): ?array
-    {
-        return $this->role_ids;
-    }
-
-    public function getRoleIds(): ?array
-    {
-        return $this->role_ids;
-    }
-
-    public function setRoles(?array $role_ids): static
-    {
-        $this->role_ids = $role_ids;
-
-        return $this;
-    }
-
-    public function setRoleIds(?array $role_ids): static
-    {
-        $this->role_ids = $role_ids;
-
-        return $this;
-    }
-
 }

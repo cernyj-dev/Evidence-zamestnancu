@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Employee;
+use App\Entity\Role;
 use App\Repository\RoleRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -15,32 +17,15 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EmployeeType extends AbstractType
 {
-    private array $role_choices;
-    public function __construct(RoleRepository $role_repository){
-        $this->role_choices = $this->getRoleChoices($role_repository);
-    }
-
-    private function getRoleChoices(RoleRepository $roleRepository): array
-    {
-        $roles = $roleRepository->findAll();
-        $choices = [];
-
-        foreach ($roles as $role) {
-            $choices[$role->getName()] = $role->getId();
-        }
-
-        return $choices;
-    }
-
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Jméno a příjmení',
+                'label' => 'Jméno a příjmení *',
                 'required' => true,
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Email',
+                'label' => 'Email *',
                 'required' => true,
             ])
             ->add('office_location', TextType::class, [
@@ -52,18 +37,17 @@ class EmployeeType extends AbstractType
                 'required' => false,
             ])
             ->add('phone', TextType::class, [
-                'label' => 'Telefon',
+                'label' => 'Telefon *',
                 'required' => true,
             ])
 
-            ->add('role_ids', ChoiceType::class, [
-                'choices' => $this->role_choices,
+            ->add('roles', EntityType::class, [
+                'class' => Role::class,
                 'multiple' => true,
                 'expanded' => true,
-                'label' => 'Výběr rolí',
+                'label' => 'Výběr rolí ',
                 'required' => false,
-
-
+                'choice_label' => 'name',
             ])
 
 

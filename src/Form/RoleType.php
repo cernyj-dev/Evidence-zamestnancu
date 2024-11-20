@@ -15,7 +15,7 @@ class RoleType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Název role',
+                'label' => 'Název role *',
                 'required' => true
             ])
         ;

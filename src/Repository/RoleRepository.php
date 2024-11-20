@@ -15,17 +15,6 @@ class RoleRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Role::class);
     }
-    public function findAllReindexedById(): array
-    {
-        $roles = $this->findAll();
-        $rolesById = [];
-
-        foreach ($roles as $role) {
-            $rolesById[$role->getId()] = $role;
-        }
-
-        return $rolesById;
-    }
 //    /**
 //     * @return Role[] Returns an array of Role objects
 //     */
