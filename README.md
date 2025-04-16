@@ -36,8 +36,6 @@ The application serves as a simple **employee management system**, allowing user
 
 ## Screenshots
 
-> Replace the image paths with actual screenshots from your project.
-
 ### Homepage with search field
 ![Homepage](public/images/screenshot_titlepage.jpg)
 
