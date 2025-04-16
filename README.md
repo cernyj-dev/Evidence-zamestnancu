@@ -1,11 +1,92 @@
-# Informace o projektu #
-Tento cvičný projekt slouží jako nástroj k naučení se a získání zkušeností s PHP frameworkem Symfony. Nejdříve jsem vytvořil HTML kostru navrhované webové aplikace zabývající se evidencí zaměstnanců. Dále byla tato HTML stránka graficky upravena pomocí CSS. 
-V dalších krocích se začala využívat MVC architektura -- vyvíjel se controller, view byl upraven pomocí Twig nástroje, model byl tvořen SQLite databází, která byla dále namodelovaná díky Doctrine ORM.
+# Employee Records Web Application (Symfony Practice Project)
 
-Aplikace je tvořena titulní stranou, ze které lze přes vyhledávací okno dohledat jakéhokoli evidovaného zaměstnance. Z vyhledaných zaměstnanců lze pak přejít na detail zaměstance, upravit ho nebo se podívat na jeho evidované účty. U každého zaměstnance je vidět jejich
-fotka, kontakt a nastavené funkce. Zaměstnance lze upravit přes formulář a změnit mu popisek, jméno, email, kancelář, popisek, telefon nebo pomocí scroll-down multichoice mu vybrat různé role (funkce). Každý zaměstnanec může mít více účtů, do kterých se dostaneme skrze
-tlačítko u zaměstnance. Účty lze přidávat, upravovat nebo mazat. Jakákoli manipulace se zaměstnancem, rolí nebo účtem je vyřešena pomocí formulářů a pomoci Doctrine ORM je implementována i základní validace vyplňovaných údajů.
+> 🧑‍💼 A practice project built with the **Symfony PHP framework**, focused on managing employee records using MVC architecture, Doctrine ORM, and Twig templating.
 
-Ve složce __src__ lze najít implementaci jednotlivých kontrolerů, entit (reflektujících ty databázové, společně se vzájemnými vazbami), formulářů a pomocných operací.
+---
 
-Ve složce __templates__ se nachází Twig soubory implementující šablonovanou HTML část aplikace. Dále ve složce __public/styles__ naleznete CSS soubory.
+## Project Overview
+
+This project was developed as a hands-on introduction to the **Symfony** PHP framework. The goal was to gain experience with Symfony’s structure, MVC architecture, and integration with supporting tools such as **Doctrine ORM**, **Twig**, and **SQLite**.
+
+The application serves as a simple **employee management system**, allowing users to view, search, edit, and manage employees and their associated accounts.
+
+---
+
+## Features
+
+- **Homepage with search functionality**  
+  Search for any registered employee by name.
+
+- **Employee detail page**  
+  View an employee’s information including:
+  - Name, email, office, phone number
+  - Profile photo
+  - Role assignments (multi-select dropdown)
+
+- **Employee editing**  
+  Modify employee data through forms with validation.
+
+- **Account management**  
+  Add, edit, or delete multiple accounts per employee.
+
+- **Validation**  
+  Form data is validated using Symfony forms and Doctrine annotations.
+
+---
+
+## Screenshots
+
+> Replace the image paths with actual screenshots from your project.
+
+### Homepage with search field
+![Homepage](public/images/screenshot_titlepage.jpg)
+
+### Searched employees
+![Employee Detail](public/images/screenshot_searched_employees.jpg)
+
+### Account editing form
+![Accounts](public/images/screenshot_editing_account.jpg)
+
+---
+
+## Project Structure
+
+### `src/`
+- Controllers  
+- Entities (with relationships)  
+- Form types  
+- Supporting services and operations  
+
+### `templates/`
+- Twig templates for rendering HTML views  
+
+### `public/styles/`
+- CSS files for layout and styling  
+
+---
+
+## Technologies Used
+
+- Symfony Framework  
+- Twig templating engine  
+- Doctrine ORM  
+- SQLite database  
+- HTML & CSS  
+
+---
+
+## Purpose
+
+This project was developed to:
+- Explore Symfony’s MVC architecture  
+- Practice implementing CRUD operations  
+- Learn to handle entity relationships  
+- Build form-based interfaces with validation  
+
+It’s a solid base for more advanced admin or HR systems.
+
+---
+
+## License
+
+This project is intended for educational and personal learning purposes.
